@@ -1,0 +1,44 @@
+.navbar {
+    width: 100%;
+    position: absolute;
+    overflow: auto;
+}
+
+.navtext {
+    margin-top: 10px;
+    left: 45%;
+    position: absolute;
+    font-family: "Arial Narrow", sans-serif;
+    font-weight: bold ;
+    text-align: center;
+    font-size: large;
+    letter-spacing: 2px;
+}
+
+.navbut {
+    margin-top: 10px;
+    float: right;
+    display: block;
+}
+.buts:hover {
+    transform: scale(1.2);
+}
+.buts {
+    background: white;
+    margin-right: 30px;
+    width: 15px;
+    height: 15px;
+    border: 0;
+    border-radius: 20%;
+    background-size: contain;
+}
+
+#search {
+    background-image: url("../../../public/search.ico");
+}
+#favourites {
+    background-image: url("../../../public/heart.ico");
+}
+#cart {
+    background-image: url("../../../public/market.ico");
+}
