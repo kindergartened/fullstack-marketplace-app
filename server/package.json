@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Back part of the marketplace",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kindergartened/fullstack-marketplace-app.git"
+  },
+  "keywords": [
+    "backend",
+    "nodejs",
+    "js"
+  ],
+  "author": "Kindergartened inc.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kindergartened/fullstack-marketplace-app/issues"
+  },
+  "homepage": "https://github.com/kindergartened/fullstack-marketplace-app#readme"
+}
