@@ -1,0 +1,13 @@
+.search_container {
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px black solid;
+}
+
+.search_container_input {
+    font-size: 18px;
+}
+
+.search_container_input:focus {
+
+}
