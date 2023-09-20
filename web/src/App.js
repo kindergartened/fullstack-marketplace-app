@@ -12,6 +12,7 @@ function App() {
   return (
     <div>
         <Navbar/>
+        <Carousel data={slides}></Carousel>
     </div>
   );
 }

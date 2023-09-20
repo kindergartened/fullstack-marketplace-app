@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
-//import styles from './Carousel.module.css'
-import {BsArrowLeftCircleFill, BsArrowRightCircleFill} from "react-icons/bs";
-import './Carousel.css'
+import styles from './Carousel.module.css'
+import {GiBrainTentacle, GiTentaclesBarrier} from "react-icons/gi";
 
 
 export const Carousel = ( {data} ) => {
@@ -14,16 +13,17 @@ export const Carousel = ( {data} ) => {
     const prevSlide = () => {
         setSlide(slide===0 ? data.length-1: slide-1)
     }
+
     return (
-        <div className="carousel">
-            <BsArrowLeftCircleFill className="arrow arrow-left" onClick={prevSlide}/>
+        <div className={styles.carousel}>
+            <GiTentaclesBarrier className={styles.arrow_left + " " + styles.arrow} onClick={prevSlide}/>
             {data.map((item,index) => {
-                return <img src={item.src} alt={item.alt} key={index} className={slide === index ? "slide" : "slide slideHiden"}/>
+                return <img src={item.src} alt={item.alt} key={index} className={slide === index ? styles.slide : styles.slide + " " + styles.slideHiden}/>
             })}
-            <BsArrowRightCircleFill className="arrow arrow-right" onClick={nextSlide}/>
-            <span className="carousel-indicators">
+            <GiBrainTentacle className={styles.arrow_right + " " + styles.arrow} onClick={nextSlide}/>
+            <span className={styles.carousel_indicators}>
                 {data.map((_,index) => {
-                return <button key={index} onClick={()=>setSlide(index)} className={slide === index ? "indicator" : "indicator indicator-inactive"}></button>
+                return <button key={index} onClick={()=>setSlide(index)} className={styles.indicator + " " + (slide === index ? "" :  styles.indicator_inactive)}></button>
             })}
             </span>
         </div>
