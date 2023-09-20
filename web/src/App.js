@@ -12,7 +12,7 @@ function App() {
   return (
     <div>
         <Navbar/>
-        <Carousel data={slides}></Carousel>
+        <Carousel data={slides}/>
     </div>
   );
 }
