@@ -1,10 +1,19 @@
 import React from 'react';
 import styles from "./Menu.module.css";
+import {CloseButton} from "react-bootstrap";
 
-const Menu = () => {
+const Menu = ({ isShow }) => {
+    function closeMenu() {
+        isShow = !isShow;
+    }
+
     return (
-        <div>
-            /* https://www.youtube.com/watch?v=QpsGo8kZiTo&t=1s */
+        <div className={styles.menu + " " + (isShow ? styles.showMenuAnimation : "")}>
+            <a href="#">Penis</a>
+            <a href="#">popa</a>
+            <a href="#">huii</a>
+
+            <span onClick={closeMenu}><CloseButton/></span>
         </div>
     );
 };
