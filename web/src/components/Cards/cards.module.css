@@ -1,0 +1,38 @@
+.card{
+    width: 200px;
+    height: 300px;
+    border: 2px solid black !important;
+    border-radius: 10px;
+    box-sizing: border-box;
+    position: relative;
+    left: 100px;
+    top: 500px;
+}
+.image{
+    height: 100%;
+    width:auto;
+}
+.title{
+    font-family: "Arial Narrow", sans-serif;
+    font-weight: bold;
+    text-align: left;
+}
+.Text{
+    font-family: "Arial Narrow", sans-serif;
+    font-weight: bold;
+    text-align: left;
+}
+.buts{
+    width: 30px;
+    height: 30px;
+    box-sizing: border-box;
+    border: 0;
+    background-color: white;
+    background-size: contain;
+}
+.addtocard{
+    background-image:url("../../../public/add-to-cart.ico") ;
+}
+.addtofav {
+    background-image: url("../../../public/heart.ico");
+}
