@@ -13,7 +13,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <Menu isShow={showMenu}></Menu>
+            <Menu isShow={showMenu} setShow={setShowMenu}></Menu>
 
             <div className={styles.navbar}>
                 <div className={styles.catalog}>
