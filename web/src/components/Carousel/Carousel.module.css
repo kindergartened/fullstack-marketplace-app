@@ -5,13 +5,13 @@
     align-items: center;
     width: 100%;
     height: 600px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid rgba(0, 0, 0);
+    background-color: black;
 }
 
 .slide {
     height: 100%;
-    width: 100%;
-
+    width: fit-content;
 }
 
 .slideHiden {
@@ -22,7 +22,7 @@
     height: 3rem;
     width: 3rem;
     color: white;
-    opacity: 75%;
+    opacity: 90%;
 }
 
 .carousel_indicators {
@@ -59,7 +59,7 @@
 }
 
 .arrow_container:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .arrow_container_left {

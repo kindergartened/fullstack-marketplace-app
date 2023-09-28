@@ -1,11 +1,9 @@
 import React, {useState} from 'react';
 import styles from "./navbar.module.css";
 import SearchBox from "./SearchBox/SearchBox";
-import Menu from "./Menu/Menu";
 
-const Navbar = () => {
+const Navbar = ({ setShowMenu }) => {
     const [showSearch, setShowSearch] = useState(false);
-    const [showMenu, setShowMenu] = useState(false);
 
     function onSearchBoxChanged(e) {
         console.log(e);
@@ -13,8 +11,6 @@ const Navbar = () => {
 
     return (
         <div>
-            <Menu isShow={showMenu}></Menu>
-
             <div className={styles.navbar}>
                 <div className={styles.catalog}>
                     <button onClick={() => setShowMenu(prev => !prev)} className={styles.buts} id={styles['catalog']}/>
