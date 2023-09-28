@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from "./Menu.module.css";
-import {CloseButton} from "react-bootstrap";
 
 const Menu = ({ isShow, setShowMenu }) => {
     const items = [{value: "Главная", href: ""}, {value: "Контакты", href: ""},

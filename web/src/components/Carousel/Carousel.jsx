@@ -10,13 +10,6 @@ export const Carousel = ({data}) => {
         setSlide(slide === data.length - 1 ? 0 : slide + 1);
     }, [data.length, slide])
 
-    // TODO: доделайте пж
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         nextSlide();
-    //     }, 5000);
-    // }, [data, nextSlide]);
-
     const prevSlide = () => {
         setSlide(slide === 0 ? data.length - 1 : slide - 1);
     }
