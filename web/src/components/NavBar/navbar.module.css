@@ -1,13 +1,17 @@
 .navbar {
     width: 100%;
-    position: fixed;
+    position: sticky;
     display: flex;
     justify-content: space-between;
     padding: 25px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid rgba(0, 0, 0);
+    z-index: 2;
+    background-color: #fff;
+
 }
 
 .navtext {
+    color: black;
     font-family: "Arial Narrow", sans-serif;
     font-weight: bold;
     text-align: center;

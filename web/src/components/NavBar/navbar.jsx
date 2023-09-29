@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styles from "./navbar.module.css";
 import SearchBox from "./SearchBox/SearchBox";
 
-const Navbar = () => {
+const Navbar = ({ setShowMenu }) => {
     const [showSearch, setShowSearch] = useState(false);
 
     function onSearchBoxChanged(e) {
@@ -13,7 +13,7 @@ const Navbar = () => {
         <div>
             <div className={styles.navbar}>
                 <div className={styles.catalog}>
-                    <button className={styles.buts} id={styles['catalog']}/>
+                    <button onClick={() => setShowMenu(prev => !prev)} className={styles.buts} id={styles['catalog']}/>
                 </div>
                 <span className={styles.navtext}>SNEAKERS SHOP</span>
                 <div className={styles.navbut}>
