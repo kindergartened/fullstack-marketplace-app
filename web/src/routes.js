@@ -1,13 +1,17 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
-import Page404 from './pages/Page404';
+import {createBrowserRouter} from "react-router-dom";
+import Page404 from './pages/Page404/Page404';
 import HomePage from './pages/HomePage';
 
-const Router = () => {
-    <Routes>
-        <Route exact path ='/' component = {HomePage}/>
-        <Route component={Page404}/>
-    </Routes>
-}
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <HomePage/>,
+    },
+    {
+        path: "*",
+        element: <Page404/>,
+    }
+]);
 
-export default Router;
+export default router;

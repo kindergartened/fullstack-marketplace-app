@@ -1,7 +1,10 @@
 import React from "react";
+import App from "../App";
 
-const HomePage = ()=>{
-    
+const HomePage = () => {
+    return (
+        <App/>
+    )
 }
 
 export default HomePage;
