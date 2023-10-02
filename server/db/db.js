@@ -12,3 +12,7 @@ export function DBConnect() {
         password: process.env.DB_PASS,
     });
 }
+
+export function DBClose(dbSession) {
+    dbSession.end();
+}
