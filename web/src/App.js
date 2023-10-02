@@ -11,6 +11,7 @@ import Menu from "./components/NavBar/Menu/Menu";
 
 import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './routes';
+import Footer from "./components/Footer/footer";
 
 const {slides} = file
 const MenuState = createContext(false);
