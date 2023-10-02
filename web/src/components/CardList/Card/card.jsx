@@ -4,10 +4,13 @@ import styles from './card.module.css';
 import {AiOutlineHeart} from "react-icons/ai";
 import {BsCartPlus} from "react-icons/bs";
 
-function CardComponent({card}) {
+export function CardComponent({card}) {
 
-    function addToCart() {}
-    function addToFavourite() {}
+    function addToCart() {
+    }
+
+    function addToFavourite() {
+    }
 
     return (
         <div>
@@ -25,5 +28,4 @@ function CardComponent({card}) {
             </Card>
         </div>
     );
-};
-export default CardComponent;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./SearchBox.module.css";
 
-const SearchBox = ({onChanged}) => {
+export const SearchBox = ({onChanged}) => {
 
     return (
         <div className={styles.search_container}>
@@ -9,5 +9,3 @@ const SearchBox = ({onChanged}) => {
         </div>
     );
 };
-
-export default SearchBox;
