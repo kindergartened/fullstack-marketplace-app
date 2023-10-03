@@ -5,9 +5,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import file from './components/Carousel/CarouselData.json';
 import React, {createContext, useEffect, useState} from "react";
 
-import {Menu, Navbar, Carousel, Footer} from "./components";
-
-import Menu from "./components/NavBar/Menu/Menu";
+import {Menu, Navbar, Carousel, Footer, Modal} from "./components";
 
 import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './routes';
@@ -17,6 +15,7 @@ const {slides} = file
 const MenuState = createContext(false);
 
 function App() {
+    const [modalActive, setModalActive] = useState(true)
     const [showMenu, setShowMenu] = useState(false);
     const [state, setState] = useState(null);
     const callBackendAPI = async () => {
@@ -42,7 +41,7 @@ function App() {
             <Navbar setShowMenu={setShowMenu}/>
             <Carousel data={slides}/>
             <Footer/>
-
+            <Modal active={modalActive} setActive={setModalActive}/>
             {/* вывод данных, полученных с сервера Express */}
             <div>
                 {state}

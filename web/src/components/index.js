@@ -4,3 +4,4 @@ export * from "./NavBar/navbar";
 export * from "./NavBar/Menu/Menu";
 export * from "./NavBar/SearchBox/SearchBox";
 export * from "./Carousel/Carousel";
+export * from "./Modal/modal"
