@@ -5,10 +5,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import file from './components/Carousel/CarouselData.json';
 import React, {createContext, useEffect, useState} from "react";
 
-import {Menu, Navbar, Carousel, Footer, Modal} from "./components";
-
-import { BrowserRouter as Router } from 'react-router-dom';
-import Routes from './routes';
+import {Menu, Navbar, Carousel, Footer, ModalImgComponent} from "./components";
 
 
 const {slides} = file
@@ -41,7 +38,7 @@ function App() {
             <Navbar setShowMenu={setShowMenu}/>
             <Carousel data={slides}/>
             <Footer/>
-            <Modal active={modalActive} setActive={setModalActive}/>
+            <ModalImgComponent active={modalActive} setActive={setModalActive}/>
             {/* вывод данных, полученных с сервера Express */}
             <div>
                 {state}
