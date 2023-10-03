@@ -35,5 +35,3 @@ export const Carousel = ({data}) => {
         </div>
     );
 };
-
-export default Carousel;

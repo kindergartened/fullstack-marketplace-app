@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./Menu.module.css";
 
-const Menu = ({ isShow, setShowMenu }) => {
+export const Menu = ({ isShow, setShowMenu }) => {
     const items = [{value: "Главная", href: ""}, {value: "Контакты", href: ""},
         {value: "Мы на карте", href: ""},{value: "О нас", href: ""}];
     const stylesBlur = [styles.blur_container];
@@ -28,5 +28,3 @@ const Menu = ({ isShow, setShowMenu }) => {
         </div>
     );
 };
-
-export default Menu;

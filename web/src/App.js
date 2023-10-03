@@ -1,17 +1,17 @@
 import './App.css';
-import Card from './components/CardList/Card/card';
-import Navbar from "./components/NavBar/navbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import Carousel from "./components/Carousel/Carousel";
 import file from './components/Carousel/CarouselData.json';
 import React, {createContext, useEffect, useState} from "react";
+
+import {Menu, Navbar, Carousel, Footer} from "./components";
+
 import Menu from "./components/NavBar/Menu/Menu";
 
 import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './routes';
-import Footer from "./components/Footer/footer";
+
 
 const {slides} = file
 const MenuState = createContext(false);
@@ -30,7 +30,7 @@ function App() {
     };
 
     // получение GET маршрута с сервера Express, который соответствует GET из server.js
-    
+
     useEffect(() => {
         callBackendAPI()
             .then(res => setState(res.express))

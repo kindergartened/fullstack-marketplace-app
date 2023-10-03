@@ -1,8 +1,11 @@
-import {DBConnect} from "./db.js";
+import {DBConnect, DBClose} from "./db.js";
 
-export async function getGoods() {
+export async function getGoods(req, res) {
     const dbSession = DBConnect();
     dbSession.connect();
 
-    return await dbSession.query('SELECT * FROM goods');
+    const result = await dbSession.query('SELECT * FROM goods');
+    DBClose(dbSession);
+
+    return res.json(result.rows);
 }

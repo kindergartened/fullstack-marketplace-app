@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Page404.module.css";
 import {Link} from "react-router-dom";
 
-const Page404 = () => {
+export const Page404 = () => {
     return (
         <Link to="/">
             <div className={styles.page_404}>
@@ -11,5 +11,3 @@ const Page404 = () => {
         </Link>
     )
 }
-
-export default Page404;
