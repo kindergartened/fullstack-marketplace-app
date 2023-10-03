@@ -7,11 +7,6 @@ import React, {createContext, useEffect, useState} from "react";
 
 import {Menu, Navbar, Carousel, Footer} from "./components";
 
-import Menu from "./components/NavBar/Menu/Menu";
-
-import { BrowserRouter as Router } from 'react-router-dom';
-import Routes from './routes';
-
 
 const {slides} = file
 const MenuState = createContext(false);
