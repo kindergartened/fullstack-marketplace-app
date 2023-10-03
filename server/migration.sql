@@ -6,13 +6,18 @@ create table users (
     updated_at timestamptz
 );
 
+create sequence users_id_seq;
+
 create table carts (
     id bigint primary key,
     user_id bigint references users(id),
     good_id bigint references goods(id),
+    count int default 0,
     created_at timestamptz not null,
     updated_at timestamptz
 );
+
+create sequence carts_id_seq;
 
 create table goods (
     id bigint primary key,
@@ -23,6 +28,8 @@ create table goods (
     created_at timestamptz not null,
     updated_at timestamptz
 );
+
+create sequence goods_id_seq;
 
 INSERT INTO goods (id, title, description, price, img_url, created_at) values (1, 'Puma', 'good puma', 100, 'https://static.street-beat.ru/upload/iblock/a47/z15gk831h2yxkz612cm7znod7vie72bv.jpg', '2023-01-01');
 INSERT INTO goods (id, title, description, price, img_url, created_at) values (2, 'Adidas', 'good abibas', 150, 'https://static.wixstatic.com/media/8f3362_d1cb37f3c1384573af6b18a9f2359ed8~mv2.jpg/v1/fill/w_600,h_527,fp_0.50_0.50,lg_1,q_80,enc_auto/8f3362_d1cb37f3c1384573af6b18a9f2359ed8~mv2.jpg', '2023-01-01');
@@ -43,6 +50,8 @@ create table favourites (
     updated_at timestamptz
 );
 
+create sequence favourites_id_seq;
+
 create table user_sessions (
     id bigint primary key,
     user_id bigint references users(id),
@@ -51,3 +60,5 @@ create table user_sessions (
     created_at timestamptz not null,
     updated_at timestamptz
 );
+
+create sequence user_sessions_id_seq;

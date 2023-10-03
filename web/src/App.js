@@ -5,6 +5,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import file from './components/Carousel/CarouselData.json';
 import React, {createContext, useEffect, useState} from "react";
 
+
 import {Menu, Navbar, Carousel, Footer, ModalImgComponent} from "./components";
 
 
