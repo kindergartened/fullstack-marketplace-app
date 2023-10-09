@@ -1,0 +1,44 @@
+import Router from 'express-promise-router';
+import {
+    addToCart,
+    decreaseGoodCart,
+    deleteFromCart,
+    getGoods, getUserByEmailTx,
+    getUserById,
+    increaseGoodCart, login,
+    register
+} from "../db/index.js";
+import {verifyToken} from "../middlewares/auth.js";
+import {DBClose, DBConnect} from "../db/db.js";
+
+const router = new Router();
+
+// Goods
+router.get('/get_goods', getGoods);
+
+// Users
+router.get('/get_user_by_id/:id', getUserById);
+router.post('/register', register);
+router.post('/login', login);
+
+// Cart
+router.post('/add_to_cart', addToCart);
+router.delete('/delete_from_cart', deleteFromCart);
+router.post('/decrease_good_cart', decreaseGoodCart);
+router.post('/increase_good_cart', increaseGoodCart);
+
+// Middlewares
+router.post("/", verifyToken, async (req, res) => {
+    const dbSession = DBConnect();
+    dbSession.connect();
+    try {
+        const user = await getUserByEmailTx(dbSession, req.user.email);
+        res.status(200).json({message: "Welcome, " + req.user.name + "!", user: user });
+    } catch (err) {
+        return res.send({message: "Unexpected err.", err: err.message, done: false});
+    } finally {
+        DBClose(dbSession);
+    }
+})
+
+export const Routes = router;

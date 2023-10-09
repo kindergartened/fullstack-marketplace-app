@@ -2,7 +2,7 @@ import express from "express";
 const app = express();
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
-import {Router} from "./router.js";
+import {Routes} from "./routes/router.js";
 
 import { createProxyMiddleware } from "http-proxy-middleware";
 
@@ -20,6 +20,6 @@ app.use(bodyParser.json());
 //         changeOrigin: true,
 //     })
 // );
-app.use(Router);
+app.use(Routes);
 
 export default app;

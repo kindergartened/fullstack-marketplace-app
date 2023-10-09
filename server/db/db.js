@@ -1,10 +1,10 @@
 import pkg from 'pg';
-const { Client } = pkg;
+const { Pool } = pkg;
 import dotenv from "dotenv";
 dotenv.config();
 
 export function DBConnect() {
-    return new Client({
+    return new Pool({
         host: process.env.DB_HOST,
         port: process.env.DB_PORT,
         database: process.env.DB_NAME,
