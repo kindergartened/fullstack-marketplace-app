@@ -1,35 +1,30 @@
 import React, {useState} from 'react';
 import styles from "./SearchBox.module.css";
+import {useNavigate} from "react-router-dom";
+
 
 export const SearchBox = () => {
-    const [searchQuerry, setSearchQuerry] = useState('');
-    const [searchQuerrySubmitted, setUpdated] = useState('');
+    const [searchQuery, setSearchQuery] = useState('');
+    const navigate = useNavigate();
 
     const handleChange = (event) => {
-        setSearchQuerry(event.target.value);
+        setSearchQuery(event.target.value);
     };
 
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
-        event.preventDefault()
-        setUpdated(searchQuerry);
-        searchRedirect();
+            event.preventDefault();
+            navigate("/search");
         }
     };
-
-    const searchRedirect = () =>{
-        return (
-            window.location.assign('http://localhost:3000/search')
-        )
-    }
 
     return (
         <div className={styles.search_container}>
             <input placeholder="Кеды пума..."
-                value={searchQuerry}
-                onChange={handleChange}
-                onKeyDown={handleKeyDown}
-                className={styles.search_container_input}
+                   value={searchQuery}
+                   onChange={handleChange}
+                   onKeyDown={handleKeyDown}
+                   className={styles.search_container_input}
             />
         </div>
     );

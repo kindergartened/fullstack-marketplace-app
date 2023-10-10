@@ -9,3 +9,5 @@ export const CardList = ({ cards }) => {
         </div>
     )
 }
+
+export default CardList;
