@@ -1,11 +1,13 @@
-import Card from "./Card/card";
+import CardComponent from "./Card/card";
 
-export const CardList = ({ cards }) => {
+const CardList = ({ cards }) => {
     return (
         <div>
             {cards.map(e => (
-                <Card card={e} key={e.id}></Card>
+                <CardComponent card={e} key={e.id}></CardComponent>
             ))}
         </div>
     )
 }
+
+export default CardList;

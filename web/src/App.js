@@ -8,8 +8,6 @@ import Carousel from "./components/Carousel/Carousel";
 import file from './components/Carousel/CarouselData.json';
 import React, {createContext, useEffect, useState} from "react";
 import Menu from "./components/NavBar/Menu/Menu";
-import { BrowserRouter as Router } from 'react-router-dom';
-import Routes from './routes';
 
 const {slides} = file
 const MenuState = createContext(false);

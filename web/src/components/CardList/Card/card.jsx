@@ -4,7 +4,7 @@ import styles from './card.module.css';
 import {AiOutlineHeart} from "react-icons/ai";
 import {BsCartPlus} from "react-icons/bs";
 
-function CardComponent({card}) {
+const CardComponent = (props) => {
 
     function addToCart() {}
     function addToFavourite() {}
@@ -15,8 +15,8 @@ function CardComponent({card}) {
                 <Card.Img className={styles.image} variant="top"
                           src="https://a.allegroimg.com/s1024/0ca2b9/7394c97f4afba79442da19512e0a"/>
                 <Card.Body className={styles.body}>
-                    <Card.Title className={styles.title}>100 ₽</Card.Title>
-                    <Card.Text className={styles.Text}>Кроссовка Рита</Card.Text>
+                    <Card.Title className={styles.title}>{props.CardItem.head}</Card.Title>
+                    <Card.Text className={styles.Text}>{props.CardItem.price}</Card.Text>
                 </Card.Body>
                 <Card.Footer className={styles.footer}>
                     <AiOutlineHeart onClick={addToFavourite} className={styles.buts}/>
