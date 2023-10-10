@@ -3,12 +3,12 @@ import styles from "./navbar.module.css";
 import SearchBox from "./SearchBox/SearchBox";
 import {Link} from "react-router-dom"
 
-export const Navbar = ({ setShowMenu }) => {
+export const Navbar = ({ setShowMenu, setAuActive }) => {
     const [showSearch, setShowSearch] = useState(false);
-    
+
 
     return (
-        <div>
+        <div id = "navbar">
             <div className={styles.navbar}>
                 <div className={styles.catalog}>
                     <button onClick={() => setShowMenu(prev => !prev)} className={styles.buts} id={styles['catalog']}/>
@@ -21,7 +21,7 @@ export const Navbar = ({ setShowMenu }) => {
                     <Link to="/cart">
                         <button className={styles.buts} id={styles['cart']}/>
                     </Link>
-                    <button className={styles.buts} id={styles['profile']}/>
+                    <button onClick={()=> setAuActive(prev=>!prev)}className={styles.buts} id={styles['profile']}/>
                 </div>
             </div>
         </div>

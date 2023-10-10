@@ -3,13 +3,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import React, {createContext, useEffect, useState} from "react";
-import {Footer, Menu, Navbar} from "./components";
+import {Footer, Menu, ModalImgComponent, Navbar, AuMod} from "./components";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {CardPage, FavouritesPage, HomePage, Page404, SearchPage} from "./pages";
 
 const MenuState = createContext([false, null]);
 
 function App() {
+    const [modalActive, setModalActive] = useState(false);
+    const [AuActive, SetAuActive] = useState(false)
     const [showMenu, setShowMenu] = useState(false);
     const [state, setState] = useState(null);
     const callBackendAPI = async () => {
@@ -42,6 +44,8 @@ function App() {
                     <Route path="*" element={<Page404/>}/>
                 </Routes>
                 <Footer/>
+                <ModalImgComponent active={modalActive} setActive={setModalActive}/>
+                <AuMod active={AuActive} setActive={SetAuActive}/>
             </BrowserRouter>
         </MenuState.Provider>
     )
