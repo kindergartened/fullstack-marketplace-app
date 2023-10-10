@@ -14,17 +14,20 @@ const SearchPage = () => {
     return (
         <div>
             <Navbar/>
-            {goodies.length!==0
-                    ? <div>
-                        <div className={styles.querryDisplay}>По запросу <strong>{searchQuerry}</strong> найдено {goodies.length} товаров</div>
+            {goodies.length !== 0
+                ?
+                <div className="d-flex align-items-center p-3 justify-content-between">
+                    <div className={styles.querryDisplay}>По
+                        запросу <strong>{searchQuerry}</strong> найдено {goodies.length} товаров
+                    </div>
+                    <div>
                         <div>
-                            <div>
-                                <SelectFilter className={styles.selector}></SelectFilter>
-                            </div>
+                            <SelectFilter className={styles.selector}></SelectFilter>
                         </div>
                     </div>
-                    : <div className={styles.querryDisplay}>По запросу {searchQuerry} ничего не найдено</div>
-                }
+                </div>
+                : <div className={styles.querryDisplay}>По запросу {searchQuerry} ничего не найдено</div>
+            }
         </div>
     )
 }
