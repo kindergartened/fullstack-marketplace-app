@@ -6,14 +6,15 @@ import file from './components/Carousel/CarouselData.json';
 import React, {createContext, useEffect, useState} from "react";
 
 
-import {Menu, Navbar, Carousel, Footer, ModalImgComponent} from "./components";
+import {Menu, Navbar, Carousel, Footer, ModalImgComponent, AuMod} from "./components";
 
 
 const {slides} = file
 const MenuState = createContext(false);
 
 function App() {
-    const [modalActive, setModalActive] = useState(true)
+    const [modalActive, setModalActive] = useState(false);
+    const [AuActive, SetAuActive] = useState(false)
     const [showMenu, setShowMenu] = useState(false);
     const [state, setState] = useState(null);
     const callBackendAPI = async () => {
@@ -36,10 +37,11 @@ function App() {
     return (
         <MenuState.Provider value={showMenu}>
             <Menu isShow={showMenu} setShowMenu={setShowMenu}/>
-            <Navbar setShowMenu={setShowMenu}/>
+            <Navbar setShowMenu={setShowMenu} setAuActive={SetAuActive}/>
             <Carousel data={slides}/>
             <Footer/>
             <ModalImgComponent active={modalActive} setActive={setModalActive}/>
+            <AuMod active={AuActive} setActive={SetAuActive}/>
             {/* вывод данных, полученных с сервера Express */}
             <div>
                 {state}

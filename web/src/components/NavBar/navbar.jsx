@@ -2,15 +2,15 @@ import React, {useState} from 'react';
 import styles from "./navbar.module.css";
 import {SearchBox} from "./SearchBox/SearchBox";
 
-export const Navbar = ({ setShowMenu }) => {
+export const Navbar = ({ setShowMenu, setAuActive }) => {
     const [showSearch, setShowSearch] = useState(false);
 
     function onSearchBoxChanged(e) {
         console.log(e);
     }
-
+    console.log(setAuActive);
     return (
-        <div>
+        <div id = "navbar">
             <div className={styles.navbar}>
                 <div className={styles.catalog}>
                     <button onClick={() => setShowMenu(prev => !prev)} className={styles.buts} id={styles['catalog']}/>
@@ -21,7 +21,7 @@ export const Navbar = ({ setShowMenu }) => {
                     <button onClick={() => setShowSearch(prev => !prev)} className={styles.buts} id={styles['search']}/>
                     <button className={styles.buts} id={styles['favourites']}/>
                     <button className={styles.buts} id={styles['cart']}/>
-                    <button className={styles.buts} id={styles['profile']}/>
+                    <button onClick={()=> setAuActive(prev=>!prev)}className={styles.buts} id={styles['profile']}/>
                 </div>
             </div>
         </div>
