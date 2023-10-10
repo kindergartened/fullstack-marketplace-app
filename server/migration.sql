@@ -1,5 +1,6 @@
 create table users (
     id bigint primary key,
+    email varchar(128) not null,
     name varchar(64) not null,
     hash_password varchar(256) not null,
     created_at timestamptz not null,
@@ -51,14 +52,3 @@ create table favourites (
 );
 
 create sequence favourites_id_seq;
-
-create table user_sessions (
-    id bigint primary key,
-    user_id bigint references users(id),
-    session_hash varchar(256) not null,
-    access_until timestamptz not null,
-    created_at timestamptz not null,
-    updated_at timestamptz
-);
-
-create sequence user_sessions_id_seq;

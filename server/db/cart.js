@@ -34,7 +34,7 @@ export async function deleteFromCart(req, res) {
     try {
         dbSession.connect();
 
-        await dbSession.query("DELETE * FROM carts WHERE id = $1", [id]);
+        await dbSession.query("DELETE FROM carts WHERE id = $1", [id]);
         return res.send({done: true});
     } catch (err) {
         return res.send({message: "Unexpected err.", err: err.message, done: false});
@@ -70,7 +70,7 @@ export async function decreaseGoodCart(req, res) {
         const good = getCartGoodById(dbSession, id);
         let newCount = good.count - 1;
         if (newCount < 0) {
-            throw new Error("Количество не может быть меньше нуля");
+            res.status(400).send("Количество не может быть меньше нуля");
         }
 
         await dbSession.query("UPDATE carts SET count = $1 WHERE id = $2", [newCount, id]);
@@ -81,8 +81,6 @@ export async function decreaseGoodCart(req, res) {
         DBClose(dbSession);
     }
 }
-
-// TODO: get cart
 
 async function getCartGoodById(dbSession, id) {
     const result = await dbSession.query('SELECT * FROM carts WHERE id = $1', [id]);
