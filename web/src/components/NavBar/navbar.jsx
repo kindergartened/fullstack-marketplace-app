@@ -27,3 +27,5 @@ export const Navbar = ({ setShowMenu }) => {
         </div>
     );
 };
+
+export default Navbar;

@@ -28,4 +28,5 @@ export function CardComponent({card}) {
             </Card>
         </div>
     );
-}
+};
+export default CardComponent;

@@ -16,6 +16,14 @@ const router = createBrowserRouter([
         element: <Favourites/>
     },
     {
+        path: "/search",
+        element: <SearchPage/>,
+    },
+    {
+        path: "/cart",
+        element: <CardPage/>,
+    },
+    {
         path: "*",
         element: <Page404/>,
     }
