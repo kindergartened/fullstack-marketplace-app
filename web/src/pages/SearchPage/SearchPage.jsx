@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./SearchPage.module.css";
-import Navbar from "../../components/NavBar/navbar";
 import SelectFilter from "../../components/SelectFilter/SelectFilter";
+import {Navbar} from "../../components";
 
 export const SearchPage = () => {
     const searchQuerry = "ZALUPKA";

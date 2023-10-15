@@ -1,13 +1,10 @@
 import './App.css';
-import Card from './components/CardList/Card/card';
-import Navbar from "./components/NavBar/navbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import Carousel from "./components/Carousel/Carousel";
 import file from './components/Carousel/CarouselData.json';
 import React, {createContext, useEffect, useState} from "react";
-import Menu from "./components/NavBar/Menu/Menu";
+import {Carousel, Footer, Menu, Navbar} from "./components";
 
 const {slides} = file
 const MenuState = createContext(false);
@@ -37,11 +34,7 @@ function App() {
             <Menu isShow={showMenu} setShowMenu={setShowMenu}/>
             <Navbar setShowMenu={setShowMenu}/>
             <Carousel data={slides}/>
-
-            {/* вывод данных, полученных с сервера Express */}
-            <div>
-                {state}
-            </div>
+            <Footer/>
         </MenuState.Provider>
     )
 }

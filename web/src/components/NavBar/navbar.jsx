@@ -1,10 +1,9 @@
-import { render } from "react-dom";
 import React, {useState} from 'react';
 import styles from "./navbar.module.css";
 import SearchBox from "./SearchBox/SearchBox";
 import {Link} from "react-router-dom"
 
-const Navbar = ({ setShowMenu }) => {
+export const Navbar = ({ setShowMenu }) => {
     const [showSearch, setShowSearch] = useState(false);
 
     return (
@@ -27,5 +26,3 @@ const Navbar = ({ setShowMenu }) => {
         </div>
     );
 };
-
-export default Navbar;
