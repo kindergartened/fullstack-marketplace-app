@@ -3,7 +3,7 @@ import styles from "./SearchBox.module.css";
 import {useNavigate} from "react-router-dom";
 
 
-export const SearchBox = () => {
+const SearchBox = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const navigate = useNavigate();
 

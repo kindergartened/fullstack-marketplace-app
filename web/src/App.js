@@ -1,19 +1,18 @@
 import './App.css';
+import Card from './components/CardList/Card/card';
+import Navbar from "./components/NavBar/navbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import Carousel from "./components/Carousel/Carousel";
 import file from './components/Carousel/CarouselData.json';
 import React, {createContext, useEffect, useState} from "react";
-
-
-import {Menu, Navbar, Carousel, Footer, ModalImgComponent} from "./components";
-
+import Menu from "./components/NavBar/Menu/Menu";
 
 const {slides} = file
 const MenuState = createContext(false);
 
 function App() {
-    const [modalActive, setModalActive] = useState(true)
     const [showMenu, setShowMenu] = useState(false);
     const [state, setState] = useState(null);
     const callBackendAPI = async () => {
@@ -27,7 +26,7 @@ function App() {
     };
 
     // получение GET маршрута с сервера Express, который соответствует GET из server.js
-
+    
     useEffect(() => {
         callBackendAPI()
             .then(res => setState(res.express))
@@ -38,8 +37,7 @@ function App() {
             <Menu isShow={showMenu} setShowMenu={setShowMenu}/>
             <Navbar setShowMenu={setShowMenu}/>
             <Carousel data={slides}/>
-            <Footer/>
-            <ModalImgComponent active={modalActive} setActive={setModalActive}/>
+
             {/* вывод данных, полученных с сервера Express */}
             <div>
                 {state}
