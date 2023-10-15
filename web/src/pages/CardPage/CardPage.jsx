@@ -3,7 +3,7 @@ import styles from "./CardPage.module.css";
 import CardComponent from "../../components/CardList/Card/card";
 
 
-const CardPage = () => {
+export const CardPage = () => {
 
     return (
         <div>
@@ -11,5 +11,3 @@ const CardPage = () => {
         </div>
     )
 }
-
-export default CardPage;

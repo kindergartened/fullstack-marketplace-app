@@ -3,7 +3,7 @@ import styles from "./SearchPage.module.css";
 import Navbar from "../../components/NavBar/navbar";
 import SelectFilter from "../../components/SelectFilter/SelectFilter";
 
-const SearchPage = () => {
+export const SearchPage = () => {
     const searchQuerry = "ZALUPKA";
     const goodies = [
         {element: "1"},
@@ -31,5 +31,3 @@ const SearchPage = () => {
         </div>
     )
 }
-
-export default SearchPage;

@@ -1,9 +1,6 @@
 import React from "react";
 import {createBrowserRouter} from "react-router-dom";
-import Page404 from './pages/Page404/Page404';
-import HomePage from './pages/HomePage';
-import SearchPage from "./pages/SearchPage/SearchPage";
-import CardPage from "./pages/CardPage/CardPage"
+import {CardPage, HomePage, Page404, SearchPage} from "./pages";
 
 const router = createBrowserRouter([
     {
