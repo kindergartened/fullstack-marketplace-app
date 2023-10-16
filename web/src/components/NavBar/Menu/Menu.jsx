@@ -3,7 +3,7 @@ import styles from "./Menu.module.css";
 
 export const Menu = ({ isShow, setShowMenu }) => {
     const items = [{value: "Главная", href:"#navbar"}, {value: "Контакты", href:""},
-        {value: "Мы на карте", href:""},{value: "О нас", href: ""}];
+        {value: "Мы на карте", href:"#footer"},{value: "О нас", href: ""}];
     const stylesBlur = [styles.blur_container];
 
     if (isShow) {

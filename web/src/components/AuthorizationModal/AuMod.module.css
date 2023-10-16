@@ -8,8 +8,8 @@
     margin: 10px 0 0px 0;
     box-sizing: border-box;
     border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-
 }
+
 .headtxt {
     font-size: 35px;
     padding-bottom:10px ;
@@ -39,8 +39,4 @@
 .formcontr {
     font-size: 15px;
     border: 1px solid black;
-}
-
-.check:focus {
-
 }
