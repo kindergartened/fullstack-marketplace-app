@@ -3,6 +3,8 @@ import App from "../../App";
 
 export const HomePage = () => {
     return (
-        <App/>
+        <div id="HomePage">
+            <App />
+        </div>
     )
 }

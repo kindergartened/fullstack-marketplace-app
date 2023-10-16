@@ -8,6 +8,10 @@ export const Navbar = ({ setShowMenu, setAuActive }) => {
     function onSearchBoxChanged(e) {
         console.log(e);
     }
+
+    function hrefto(address){
+        window.location.href = address;
+    }
     console.log(setAuActive);
     return (
         <div id = "navbar">
@@ -20,7 +24,7 @@ export const Navbar = ({ setShowMenu, setAuActive }) => {
                     {showSearch ? <SearchBox onChanged={onSearchBoxChanged}/> : null}
                     <button onClick={() => setShowSearch(prev => !prev)} className={styles.buts} id={styles['search']}/>
                     <button className={styles.buts} id={styles['favourites']}/>
-                    <button className={styles.buts} id={styles['cart']}/>
+                    <a href="cart"><button className={styles.buts} id={styles['cart']}/></a>
                     <button onClick={()=> setAuActive(prev=>!prev)}className={styles.buts} id={styles['profile']}/>
                 </div>
             </div>
