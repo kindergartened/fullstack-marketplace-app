@@ -13,7 +13,7 @@ const {slides} = file
 const MenuState = createContext(false);
 
 function App() {
-    const [modalActive, setModalActive] = useState(false);
+    const [modalActive, setModalActive] = useState(true);
     const [AuActive, SetAuActive] = useState(false)
     const [showMenu, setShowMenu] = useState(false);
     const [state, setState] = useState(null);

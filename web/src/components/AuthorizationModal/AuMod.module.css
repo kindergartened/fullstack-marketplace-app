@@ -1,0 +1,46 @@
+.authoriz {
+    display: flex;
+    color: black;
+}
+
+.header {
+    justify-content: center;
+    margin: 10px 0 0px 0;
+    box-sizing: border-box;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+
+}
+.headtxt {
+    font-size: 35px;
+    padding-bottom:10px ;
+    position:absolute;
+}
+
+.formground {
+    margin: -5px 0 15px 0;
+    
+}
+
+.formbut {
+    background-color: black;
+
+}
+
+.formbut:hover {
+    background-color:black;
+    transform: scale(1.1);
+}
+
+.formtxt {
+    font-size: 20px;
+    color: black;
+}
+
+.formcontr {
+    font-size: 15px;
+    border: 1px solid black;
+}
+
+.check:focus {
+
+}
