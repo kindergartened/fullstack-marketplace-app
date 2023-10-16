@@ -10,7 +10,7 @@ import {CardPage, FavouritesPage, HomePage, Page404, SearchPage} from "./pages";
 const MenuState = createContext([false, null]);
 
 function App() {
-    const [modalActive, setModalActive] = useState(false);
+    const [modalActive, setModalActive] = useState(true);
     const [AuActive, SetAuActive] = useState(false)
     const [showMenu, setShowMenu] = useState(false);
     const [state, setState] = useState(null);

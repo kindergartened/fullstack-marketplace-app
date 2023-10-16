@@ -14,6 +14,14 @@
     transform: scale(1);
 }
 
+.head {
+    position: absolute;
+    z-index: 5;
+    right: 0;
+    box-sizing: border-box;
+    border: none;
+}
+
 .modal_content {
     width: 100%;
     height: 400px;
