@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from "./Menu.module.css";
+import {Modal} from "../../../components/Modal/modal"
 
-const Menu = ({ isShow, setShowMenu }) => {
+export const Menu = ({ isShow, setShowMenu }) => {
     const items = [{value: "Главная", href: ""}, {value: "Контакты", href: ""},
-        {value: "Мы на карте", href: ""},{value: "О нас", href: ""}];
+        {value: "Мы на карте", href: ""},{value: "О нас", href: ""},{value: "Мобильное приложение",
+            href: ""}];
     const stylesBlur = [styles.blur_container];
 
     if (isShow) {
@@ -28,5 +30,3 @@ const Menu = ({ isShow, setShowMenu }) => {
         </div>
     );
 };
-
-export default Menu;

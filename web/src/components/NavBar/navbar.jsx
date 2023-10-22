@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import styles from "./navbar.module.css";
-import SearchBox from "./SearchBox/SearchBox";
+import {SearchBox} from "./SearchBox/SearchBox";
 
-const Navbar = ({ setShowMenu }) => {
+export const Navbar = ({ setShowMenu }) => {
     const [showSearch, setShowSearch] = useState(false);
 
     function onSearchBoxChanged(e) {
@@ -27,5 +27,3 @@ const Navbar = ({ setShowMenu }) => {
         </div>
     );
 };
-
-export default Navbar;
