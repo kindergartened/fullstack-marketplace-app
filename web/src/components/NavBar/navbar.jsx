@@ -5,6 +5,7 @@ import {Link} from "react-router-dom"
 
 export const Navbar = ({ setShowMenu }) => {
     const [showSearch, setShowSearch] = useState(false);
+    
 
     return (
         <div>
