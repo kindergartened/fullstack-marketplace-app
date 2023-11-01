@@ -1,13 +1,10 @@
 import React, {useState} from 'react';
 import styles from "./navbar.module.css";
-import {SearchBox} from "./SearchBox/SearchBox";
+import SearchBox from "./SearchBox/SearchBox";
+import {Link} from "react-router-dom"
 
 export const Navbar = ({ setShowMenu }) => {
     const [showSearch, setShowSearch] = useState(false);
-
-    function onSearchBoxChanged(e) {
-        console.log(e);
-    }
 
     return (
         <div>
@@ -17,10 +14,12 @@ export const Navbar = ({ setShowMenu }) => {
                 </div>
                 <span className={styles.navtext}>SNEAKERS SHOP</span>
                 <div className={styles.navbut}>
-                    {showSearch ? <SearchBox onChanged={onSearchBoxChanged}/> : null}
+                    {showSearch ? <SearchBox/> : null}
                     <button onClick={() => setShowSearch(prev => !prev)} className={styles.buts} id={styles['search']}/>
                     <button className={styles.buts} id={styles['favourites']}/>
-                    <button className={styles.buts} id={styles['cart']}/>
+                    <Link to="/cart">
+                        <button className={styles.buts} id={styles['cart']}/>
+                    </Link>
                     <button className={styles.buts} id={styles['profile']}/>
                 </div>
             </div>
