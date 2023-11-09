@@ -33,25 +33,26 @@ export const SearchPage = () => {
     return (
         <div>
             <Navbar/>
-            {goods.length !== 0
+            {goods.filter(item => item.title.includes(searchQuerry)).length !== 0
                 ?
-                <div className={styles.querryDisplayContainer}>
-                    <div className={styles.querryDisplay}>
-                        По запросу <strong>{searchQuerry}</strong> найдено {goods.filter(item => item.title.includes(searchQuerry)).length} товаров
-                    </div>
-                    <div>
-                        <SelectFilter
-                            value={selectedSort}
-                            onChange={sortGoods}
-                        />   
+                <div>
+                    <div className={styles.querryDisplayContainer}>
+                        <div className={styles.querryDisplay}>
+                            По запросу <strong>{searchQuerry}</strong> найдено {goods.filter(item => item.title.includes(searchQuerry)).length} товаров
+                        </div>
+                        <div>
+                            <SelectFilter
+                                value={selectedSort}
+                                onChange={sortGoods}
+                            />   
                     </div>
                 </div>
-                
+                    <div className={styles.cardListContainer}>
+                        <CardList goods={goods.filter(item => item.title.includes(searchQuerry))}/>
+                    </div>
+                </div>
                 : <div className={styles.querryDisplay}>По запросу {searchQuerry} ничего не найдено</div>
             }
-           <div className={styles.cardListContainer}>
-                <CardList goods={goods.filter(item => item.title.includes(searchQuerry))}/>
-           </div>
         </div>
     )
 }

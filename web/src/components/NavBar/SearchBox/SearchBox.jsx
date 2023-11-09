@@ -12,8 +12,11 @@ const SearchBox = () => {
         event.preventDefault();
         const form = event.target;
         const query = form.search.value;
-        nav('/search/')
-        setSearchParams({text: query});
+        if (query!=="")
+        {
+            nav('/search/')
+            setSearchParams({text: query});
+        }
     };
 
     return (
