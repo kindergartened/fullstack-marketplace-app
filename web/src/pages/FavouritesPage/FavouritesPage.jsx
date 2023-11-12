@@ -10,8 +10,7 @@ export const FavouritesPage = () => {
     }]); 
     
     return (
-        <div>
-            <Navbar/>
+        <div className="h-100">
             {favourites.length !== 0
                 ?
                 <div className={styles.querryDisplayContainer}>Тут находятся ваши любимые товары</div>

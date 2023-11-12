@@ -21,7 +21,7 @@ export async function addToCart(req, res) {
         result = await dbSession.query("INSERT INTO carts (id, user_id, good_id, created_at) VALUES ($1, $2, $3, $4)", [id, userId, goodId, now]);
         return res.send({done: true});
     }).catch(err => {
-        return res.send({message: "Unexpected err.", err: err.message, done: false});
+        return res.send({message: "Ошибка добавления товара в корзину.", err: err.message, done: false});
     }).finally(() => {
         DBClose(dbSession);
     });
@@ -37,7 +37,7 @@ export async function deleteFromCart(req, res) {
         await dbSession.query("DELETE FROM carts WHERE id = $1", [id]);
         return res.send({done: true});
     } catch (err) {
-        return res.send({message: "Unexpected err.", err: err.message, done: false});
+        return res.send({message: "Ошибка удаления товара из корзины.", err: err.message, done: false});
     } finally {
         DBClose(dbSession);
     }
@@ -55,7 +55,7 @@ export async function increaseGoodCart(req, res) {
         await dbSession.query("UPDATE carts SET count = $1 WHERE id = $2", [newCount, id]);
         return res.send({done: true});
     } catch (err) {
-        return res.send({message: "Unexpected err.", err: err.message, done: false});
+        return res.send({message: "Ошибка увеличения количества товара в корзине.", err: err.message, done: false});
     } finally {
         DBClose(dbSession);
     }
@@ -75,6 +75,21 @@ export async function decreaseGoodCart(req, res) {
 
         await dbSession.query("UPDATE carts SET count = $1 WHERE id = $2", [newCount, id]);
         return res.send({done: true});
+    } catch (err) {
+        return res.send({message: "Ошибка уменьшения количества товара в корзине.", err: err.message, done: false});
+    } finally {
+        DBClose(dbSession);
+    }
+}
+
+export async function queryMyCart(req, res) {
+    const {userId} = req.body;
+    const dbSession = DBConnect();
+
+    try {
+        dbSession.connect();
+        const result = await dbSession.query("SELECT * FROM carts WHERE user_id = $1", [userId]);
+        return res.send(result.rows);
     } catch (err) {
         return res.send({message: "Unexpected err.", err: err.message, done: false});
     } finally {
