@@ -1,6 +1,6 @@
 import React from "react";
 import {createBrowserRouter} from "react-router-dom";
-import {CardPage, HomePage, Page404, SearchPage} from "./pages";
+import {CardPage, FavouritesPage, HomePage, Page404, SearchPage} from "./pages";
 
 const router = createBrowserRouter([
     {
@@ -14,6 +14,10 @@ const router = createBrowserRouter([
     {
         path: "/cart",
         element: <CardPage/>,
+    },
+    {
+        path: "/favourites",
+        element: <FavouritesPage/>
     },
     {
         path: "*",

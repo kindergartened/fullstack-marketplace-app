@@ -5,3 +5,4 @@ export * from "./NavBar/Menu/Menu";
 export * from "./NavBar/SearchBox/SearchBox";
 export * from "./Carousel/Carousel";
 export * from "./Modal/modal"
+export * from "./FavouritesList/FavouritesList"

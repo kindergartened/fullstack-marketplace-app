@@ -5,6 +5,7 @@ import {Link} from "react-router-dom"
 
 export const Navbar = ({ setShowMenu }) => {
     const [showSearch, setShowSearch] = useState(false);
+    
 
     return (
         <div>
@@ -12,11 +13,11 @@ export const Navbar = ({ setShowMenu }) => {
                 <div className={styles.catalog}>
                     <button onClick={() => setShowMenu(prev => !prev)} className={styles.buts} id={styles['catalog']}/>
                 </div>
-                <span className={styles.navtext}>SNEAKERS SHOP</span>
+                <Link to="/"><span className={styles.navtext}>SNEAKERS SHOP</span></Link>
                 <div className={styles.navbut}>
                     {showSearch ? <SearchBox/> : null}
                     <button onClick={() => setShowSearch(prev => !prev)} className={styles.buts} id={styles['search']}/>
-                    <button className={styles.buts} id={styles['favourites']}/>
+                    <Link to="/favourites"><button className={styles.buts} id={styles['favourites']}/></Link>
                     <Link to="/cart">
                         <button className={styles.buts} id={styles['cart']}/>
                     </Link>
