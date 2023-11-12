@@ -6,6 +6,7 @@
     background: black;
     box-sizing: border-box;
     position: relative;
+    bottom: 0;
     font-family: "Arial Narrow", sans-serif;
     letter-spacing: 1px;
 }

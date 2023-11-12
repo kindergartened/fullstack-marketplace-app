@@ -1,8 +1,11 @@
 import React from "react";
-import App from "../../App";
+import {Carousel} from "../../components";
+import file from "../../components/Carousel/CarouselData.json";
+
+const {slides} = file
 
 export const HomePage = () => {
     return (
-        <App/>
+        <Carousel data={slides}/>
     )
 }

@@ -14,8 +14,7 @@ const SearchBox = () => {
         const query = form.search.value;
         if (query!=="")
         {
-            nav('/search/')
-            setSearchParams({text: query});
+            nav('/search', {state: {text: query}});
         }
     };
 

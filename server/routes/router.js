@@ -5,11 +5,12 @@ import {
     deleteFromCart,
     getGoods, getUserByEmailTx,
     getUserById,
-    increaseGoodCart, login,
+    increaseGoodCart, login, queryMyCart,
     register
 } from "../db/index.js";
 import {verifyToken} from "../middlewares/auth.js";
 import {DBClose, DBConnect} from "../db/db.js";
+import {addToFav, deleteFromFavById, queryMyFavourites} from "../db/favourites.js";
 
 const router = new Router();
 
@@ -21,11 +22,17 @@ router.get('/get_user_by_id/:id', getUserById);
 router.post('/register', register);
 router.post('/login', login);
 
+// Routes
+router.post('', addToFav)
+router.delete('', deleteFromFavById)
+router.get('', queryMyFavourites)
+
 // Cart
 router.post('/add_to_cart', addToCart);
 router.delete('/delete_from_cart', deleteFromCart);
 router.post('/decrease_good_cart', decreaseGoodCart);
 router.post('/increase_good_cart', increaseGoodCart);
+router.get('/get_my_cart', queryMyCart);
 
 // Middlewares
 router.post("/", verifyToken, async (req, res) => {
@@ -33,7 +40,7 @@ router.post("/", verifyToken, async (req, res) => {
     dbSession.connect();
     try {
         const user = await getUserByEmailTx(dbSession, req.user.email);
-        res.status(200).json({message: "Welcome, " + req.user.name + "!", user: user });
+        res.status(200).json({message: "Welcome, " + req.user.name + "!", user: user});
     } catch (err) {
         return res.send({message: "Unexpected err.", err: err.message, done: false});
     } finally {
