@@ -6,4 +6,3 @@ export * from "./NavBar/SearchBox/SearchBox";
 export * from "./Carousel/Carousel";
 export * from "./Modal/modal"
 export * from "./AuthorizationModal/AuMod";
-export * from "./FavouritesList/FavouritesList"
