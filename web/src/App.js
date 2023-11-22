@@ -4,7 +4,7 @@ import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import file from './components/Carousel/CarouselData.json';
 import React, {createContext, useEffect, useState} from "react";
-
+import axios from "axios";
 
 import {Menu, Navbar, Carousel, Footer, ModalImgComponent} from "./components";
 
@@ -17,20 +17,18 @@ function App() {
     const [showMenu, setShowMenu] = useState(false);
     const [state, setState] = useState(null);
     const callBackendAPI = async () => {
-        const response = await fetch('/api/express_backend');
-        const body = await response.json();
-
-        if (response.status !== 200) {
-            throw Error(body.message)
-        }
-        return body;
+       //тут запрос через axios на сервер
+       
+       axios
+            .get('')
+            .then((res =>console.log(res)));
+            //
     };
 
     // получение GET маршрута с сервера Express, который соответствует GET из server.js
 
     useEffect(() => {
         callBackendAPI()
-            .then(res => setState(res.express))
             .catch(err => console.log(err));
     }, [])
     return (
@@ -49,3 +47,4 @@ function App() {
 }
 
 export default App;
+//сделать запрос через axios(получить данные с бэка)

@@ -3,8 +3,10 @@ const app = express();
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import {Routes} from "./routes/router.js";
+import auth from "./middlewares/auth.js";
 
 import { createProxyMiddleware } from "http-proxy-middleware";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 
@@ -21,5 +23,6 @@ app.use(bodyParser.json());
 //     })
 // );
 app.use(Routes);
-
+app.use(cookieParser());
 export default app;
+
