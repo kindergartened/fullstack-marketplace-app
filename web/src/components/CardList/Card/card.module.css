@@ -1,11 +1,10 @@
 .card {
     width: 200px;
-    height: 300px !important;
+    height: max-content;
     border: 1px solid gray !important;
-    position: relative;
-    left: 100px;
-    top: 500px;
+    left: 50px;
     transition: 0.25s ease;
+    margin: 5px;
 }
 
 .card:hover {
@@ -13,13 +12,13 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
-.card .image, .card .body, .card .footer {
+.card .image .card .body .card .footer {
     padding: 10px;
 }
 
 .image {
-    height: 100%;
-    width: auto;
+    width: 286px;
+    height: 180px;
 }
 
 .title {
@@ -55,5 +54,6 @@
 .footer {
     display: flex;
     justify-content: flex-end;
+    
 }
 
