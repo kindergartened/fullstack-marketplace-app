@@ -3,7 +3,7 @@ const app = express();
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import {Routes} from "./routes/router.js";
-import auth from "./middlewares/auth.js";
+
 
 import cors from "cors"
 import { createProxyMiddleware } from "http-proxy-middleware";

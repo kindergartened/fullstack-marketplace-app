@@ -7,6 +7,7 @@ import {Footer, Menu, Navbar} from "./components";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {CardPage, FavouritesPage, HomePage, Page404, SearchPage} from "./pages";
 import axios from "axios";
+import { auth } from './api/api';
 const MenuState = createContext([false, null]);
 
 function App() {
@@ -14,11 +15,7 @@ function App() {
     const [state, setState] = useState(null);
     const callBackendAPI = async () => {
        //тут запрос через axios на сервер
-       
-       axios
-            .get('')
-            .then((res =>console.log(res)));
-            //
+       auth()
     };
 
     // получение GET маршрута с сервера Express, который соответствует GET из server.js
