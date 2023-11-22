@@ -1,0 +1,18 @@
+.querryDisplay{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-family: "Arial Narrow", sans-serif;
+    font-size: 23px;
+}
+
+.querryDisplayContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3px;
+}
+
+.cardListContainer{
+    display: flex;
+    flex-flow: wrap;
+}

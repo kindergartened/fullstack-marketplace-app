@@ -44,6 +44,7 @@ INSERT INTO goods (id, title, description, price, img_url, created_at) values (8
 INSERT INTO goods (id, title, description, price, img_url, created_at) values (9, 'Russia', 'good russia', 300, 'https://i.pinimg.com/originals/48/ac/30/48ac30df014bc89c13b5677c36f41386.png', '2023-01-01');
 INSERT INTO goods (id, title, description, price, img_url, created_at) values (10, 'Leopard', 'just a boot', 1, 'https://diva-charms.com/6499-superlarge_default/leopard-boots.jpg', '2023-01-01');
 
+
 create table favourites (
     id bigint primary key,
     user_id bigint references users(id),
