@@ -2,14 +2,19 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import file from './components/Carousel/CarouselData.json';
 import React, {createContext, useEffect, useState} from "react";
-import {Footer, Menu, Navbar} from "./components";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {CardPage, FavouritesPage, HomePage, Page404, SearchPage} from "./pages";
 
-const MenuState = createContext([false, null]);
+
+import {Menu, Navbar, Carousel, Footer, ModalImgComponent, AuMod} from "./components";
+
+
+const {slides} = file
+const MenuState = createContext(false);
 
 function App() {
+    const [modalActive, setModalActive] = useState(true);
+    const [AuActive, SetAuActive] = useState(false)
     const [showMenu, setShowMenu] = useState(false);
     const [state, setState] = useState(null);
     const callBackendAPI = async () => {
@@ -30,19 +35,17 @@ function App() {
             .catch(err => console.log(err));
     }, [])
     return (
-        <MenuState.Provider value={[showMenu, setShowMenu]}>
-            <BrowserRouter>
-                <Menu isShow={showMenu} setShowMenu={setShowMenu}/>
-                <Navbar setShowMenu={setShowMenu}/>
-                <Routes>
-                    <Route path="/" element={<HomePage/>}/>
-                    <Route path="/search" element={<SearchPage/>}/>
-                    <Route path="/cart" element={<CardPage/>}/>
-                    <Route path="/favourites" element={<FavouritesPage/>}/>
-                    <Route path="*" element={<Page404/>}/>
-                </Routes>
-                <Footer/>
-            </BrowserRouter>
+        <MenuState.Provider value={showMenu}>
+            <Menu isShow={showMenu} setShowMenu={setShowMenu}/>
+            <Navbar setShowMenu={setShowMenu} setAuActive={SetAuActive}/>
+            <Carousel data={slides}/>
+            <Footer/>
+            <ModalImgComponent active={modalActive} setActive={setModalActive}/>
+            <AuMod active={AuActive} setActive={SetAuActive}/>
+            {/* вывод данных, полученных с сервера Express */}
+            <div>
+                {state}
+            </div>
         </MenuState.Provider>
     )
 }

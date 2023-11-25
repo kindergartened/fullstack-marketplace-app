@@ -3,7 +3,7 @@ import styles from "./SearchBox.module.css";
 import {useNavigate, useSearchParams} from "react-router-dom";
 
 
-const SearchBox = () => {
+export const SearchBox = () => {
     const [searchParams, setSearchParams] = useSearchParams()
 
     const nav = useNavigate()
@@ -30,5 +30,3 @@ const SearchBox = () => {
         </div>
     );
 };
-
-export default SearchBox;
