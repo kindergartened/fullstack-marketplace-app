@@ -23,9 +23,9 @@ router.post('/register', register);
 router.post('/login', login);
 
 // Routes
-router.post('', addToFav)
-router.delete('', deleteFromFavById)
-router.get('', queryMyFavourites)
+router.post('/add_to_fav', addToFav)
+router.delete('/delete_fav_by_id', deleteFromFavById)
+router.get('/my_fav', queryMyFavourites)
 
 // Cart
 router.post('/add_to_cart', addToCart);
