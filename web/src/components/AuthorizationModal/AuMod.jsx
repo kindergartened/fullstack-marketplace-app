@@ -3,7 +3,6 @@ import {Modal, Form, Button} from "react-bootstrap";
 import styles from './AuMod.module.css';
 
 export const AuMod = ({active,setActive}) => {
-    console.log();
     return (
         <Modal className={styles.authoriz} onHide={setActive} show={active}>
             <Modal.Header closeButton className={styles.header}>

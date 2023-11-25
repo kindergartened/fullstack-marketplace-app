@@ -12,7 +12,6 @@ export const Navbar = ({ setShowMenu, setAuActive }) => {
     function hrefto(address){
         window.location.href = address;
     }
-    console.log(setAuActive);
     return (
         <div id = "navbar">
             <div className={styles.navbar}>
