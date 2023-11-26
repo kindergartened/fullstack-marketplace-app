@@ -40,3 +40,13 @@
     font-size: 15px;
     border: 1px solid black;
 }
+
+.is_auth {
+    cursor: pointer;
+    color: gray;
+}
+
+.is_auth:hover {
+    text-decoration: underline;
+    color: black;
+}

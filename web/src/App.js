@@ -2,51 +2,61 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import file from './components/Carousel/CarouselData.json';
-import React, {createContext, useEffect, useState} from "react";
+import React, {createContext, useState} from "react";
+import {Menu, Navbar, Footer, Auth, ModalImgComponent} from "./components";
+import {CardPage, FavouritesPage, HomePage, Page404, SearchPage} from "./pages";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {ErrorModal} from "./modals/Error/Error.modal";
 
+const defaultState = {
+    menu: {
+        showMenu: false,
+        setShowMenu: null,
+    },
+    error: {
+        error: null,
+        setError: null,
+    },
+};
 
-import {Menu, Navbar, Carousel, Footer, ModalImgComponent, AuMod} from "./components";
-
-
-const {slides} = file
-const MenuState = createContext(false);
+export const GlobalState = createContext(defaultState);
 
 function App() {
-    const [modalActive, setModalActive] = useState(true);
-    const [AuActive, SetAuActive] = useState(false)
+    const [modalActive, setModalActive] = useState(false);
+    const [auActive, setAuActive] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
-    const [state, setState] = useState(null);
-    const callBackendAPI = async () => {
-        const response = await fetch('/api/express_backend');
-        const body = await response.json();
+    const [error, setError] = useState(null);
 
-        if (response.status !== 200) {
-            throw Error(body.message)
-        }
-        return body;
+    const state = {
+        menu: {
+            showMenu: showMenu,
+            setShowMenu: setShowMenu
+        },
+        error: {
+            error: error,
+            setError: setError
+        },
     };
 
-    // получение GET маршрута с сервера Express, который соответствует GET из server.js
-
-    useEffect(() => {
-        callBackendAPI()
-            .then(res => setState(res.express))
-            .catch(err => console.log(err));
-    }, [])
     return (
-        <MenuState.Provider value={showMenu}>
-            <Menu isShow={showMenu} setShowMenu={setShowMenu}/>
-            <Navbar setShowMenu={setShowMenu} setAuActive={SetAuActive}/>
-            <Carousel data={slides}/>
-            <Footer/>
-            <ModalImgComponent active={modalActive} setActive={setModalActive}/>
-            <AuMod active={AuActive} setActive={SetAuActive}/>
-            {/* вывод данных, полученных с сервера Express */}
-            <div>
-                {state}
-            </div>
-        </MenuState.Provider>
+        <GlobalState.Provider value={state}>
+            <BrowserRouter>
+                <Auth active={auActive} setActive={setAuActive}/>
+                <ModalImgComponent active={modalActive} setActive={setModalActive}/>
+                {error && <ErrorModal/>}
+
+                <Menu isShow={showMenu} setShowMenu={setShowMenu}/>
+                <Navbar setShowMenu={setShowMenu} setAuActive={setAuActive}/>
+                <Routes>
+                    <Route path="/" element={<HomePage/>}/>
+                    <Route path="/search" element={<SearchPage/>}/>
+                    <Route path="/cart" element={<CardPage/>}/>
+                    <Route path="/favourites" element={<FavouritesPage/>}/>
+                    <Route path="*" element={<Page404/>}/>
+                </Routes>
+                <Footer/>
+            </BrowserRouter>
+        </GlobalState.Provider>
     )
 }
 
