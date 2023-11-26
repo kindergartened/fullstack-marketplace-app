@@ -3,22 +3,47 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import React, {createContext, useState} from "react";
-import {Menu, Navbar, Footer, AuMod, ModalImgComponent} from "./components";
+import {Menu, Navbar, Footer, Auth, ModalImgComponent} from "./components";
 import {CardPage, FavouritesPage, HomePage, Page404, SearchPage} from "./pages";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {ErrorModal} from "./modals/Error/Error.modal";
 
-const MenuState = createContext([false, null]);
+const defaultState = {
+    menu: {
+        showMenu: false,
+        setShowMenu: null,
+    },
+    error: {
+        error: null,
+        setError: null,
+    },
+};
+
+export const GlobalState = createContext(defaultState);
 
 function App() {
-    const [modalActive, setModalActive] = useState(true);
+    const [modalActive, setModalActive] = useState(false);
     const [auActive, setAuActive] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
+    const [error, setError] = useState(null);
+
+    const state = {
+        menu: {
+            showMenu: showMenu,
+            setShowMenu: setShowMenu
+        },
+        error: {
+            error: error,
+            setError: setError
+        },
+    };
 
     return (
-        <MenuState.Provider value={[showMenu, setShowMenu]}>
+        <GlobalState.Provider value={state}>
             <BrowserRouter>
-                <AuMod active={auActive} setActive={setAuActive}/>
+                <Auth active={auActive} setActive={setAuActive}/>
                 <ModalImgComponent active={modalActive} setActive={setModalActive}/>
+                {error && <ErrorModal/>}
 
                 <Menu isShow={showMenu} setShowMenu={setShowMenu}/>
                 <Navbar setShowMenu={setShowMenu} setAuActive={setAuActive}/>
@@ -31,7 +56,7 @@ function App() {
                 </Routes>
                 <Footer/>
             </BrowserRouter>
-        </MenuState.Provider>
+        </GlobalState.Provider>
     )
 }
 

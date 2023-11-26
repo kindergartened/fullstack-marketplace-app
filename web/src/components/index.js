@@ -4,7 +4,7 @@ export * from "./NavBar/navbar";
 export * from "./NavBar/Menu/Menu";
 export * from "./NavBar/SearchBox/SearchBox";
 export * from "./Carousel/Carousel";
-export * from "./Modal/modal"
-export * from "./AuthorizationModal/AuMod";
+export * from "../modals/Img/img.modal"
+export * from "../modals/Authorization/auth";
 export * from "./FavouritesList/FavouritesList";
 export * from "./FavouritesList/FavouritesCard/FavouritesCard";
