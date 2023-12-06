@@ -3,12 +3,15 @@ import Card from 'react-bootstrap/Card';
 import styles from './card.module.css';
 import {AiOutlineHeart} from "react-icons/ai";
 import {BsCartPlus} from "react-icons/bs";
+import { addToCart, addToFav } from '../../../api/api';
 
 const CardComponent = ({ CardItem }) => {
+    const Favourite = () =>{
 
-    function addToCart() {}
-    function addToFavourite() {}
-
+    }
+    const Cart = () =>{
+        
+    }
     return (
         <Card className={styles.card}>
             <Card.Img className={styles.image} variant="top" src={CardItem.img_url}/>
@@ -17,8 +20,8 @@ const CardComponent = ({ CardItem }) => {
                 <Card.Text className={styles.Text}>{CardItem.price}</Card.Text>
             </Card.Body>
             <Card.Footer className={styles.footer}>
-                <AiOutlineHeart onClick={addToFavourite} className={styles.buts}/>
-                <BsCartPlus onClick={addToCart} className={styles.buts}/>
+                <AiOutlineHeart onClick={Favourite(CardItem.id)} className={styles.buts}/>
+                <BsCartPlus onClick={Cart(CardItem.id)} className={styles.buts}/>
             </Card.Footer>
         </Card>
     );

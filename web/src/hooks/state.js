@@ -12,3 +12,9 @@ export function useMenuState() {
 
     return state.menu;
 }
+
+export function useMeState() {
+    const state = useContext(GlobalState);
+
+    return state.me;
+}

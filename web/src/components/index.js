@@ -1,5 +1,5 @@
 export * from "./Footer/footer";
-export * from "./CardList/CardList";
+export * from "./CardList/GoodsList";
 export * from "./NavBar/navbar";
 export * from "./NavBar/Menu/Menu";
 export * from "./NavBar/SearchBox/SearchBox";

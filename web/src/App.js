@@ -17,6 +17,10 @@ const defaultState = {
         error: null,
         setError: null,
     },
+    me:{
+        user: null,
+        setUser: null,
+    }
 };
 
 export const GlobalState = createContext(defaultState);
@@ -26,6 +30,7 @@ function App() {
     const [auActive, setAuActive] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
     const [error, setError] = useState(null);
+    const [user, setUser] = useState(null);
 
     const state = {
         menu: {
@@ -36,6 +41,10 @@ function App() {
             error: error,
             setError: setError
         },
+        me:{
+            user: user,
+            setUser: setUser,
+        }
     };
 
     return (

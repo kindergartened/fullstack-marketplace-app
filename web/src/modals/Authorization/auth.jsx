@@ -3,10 +3,12 @@ import {Modal, Form, Button} from "react-bootstrap";
 import styles from './auth.module.css';
 import {login, register} from "../../api/api";
 import {setCookie} from "../../utils/cookies";
+import { useMeState } from '../../hooks/state';
 
 export const Auth = ({active, setActive}) => {
     const [isAuth, setIsAuth] = useState(false);
     const [form, setForm] = useState({email: "", password: "", name: ""});
+    const xd = useMeState();
 
     function switchIsAuth() {
         setIsAuth(prev => !prev);
@@ -35,11 +37,14 @@ export const Auth = ({active, setActive}) => {
             login(form.email, form.password).then(res => {
                 setCookie(res.data.token);
                 setActive(false);
+                xd.setUser(res.data);
+                console.log(xd.user)
             });
         } else {
             register(form.name, form.email, form.password).then(res => {
                 setCookie(res.data.token);
                 setActive(false);
+                xd.setUser(res.data);
             });
         }
     }
