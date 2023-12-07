@@ -1,16 +1,43 @@
 import React, {useState, useEffect} from "react";
 import {FavouritesList} from "../../components";
 import styles from "./FavouritesPage.module.css";
+import { useMeState } from "../../hooks/state";
+import { queryMyFavourites } from "../../api/api";
 
 export const FavouritesPage = () => {
     const [favourites, setFavourites] = useState([{
         Title: "Boobtsi",
         Description: "Otlishnie boobtsi",
         Price: "mnoga deneg (100 rubley)"
+    },{
+        Title: "Boobtsi",
+        Description: "Otlishnie boobtsi",
+        Price: "mnoga deneg (100 rubley)"
+    },{
+        Title: "Boobtsi",
+        Description: "Otlishnie boobtsi",
+        Price: "mnoga deneg (100 rubley)"
+    },{
+        Title: "Boobtsi",
+        Description: "Otlishnie boobtsi",
+        Price: "mnoga deneg (100 rubley)"
+    },{
+        Title: "Boobtsi",
+        Description: "Otlishnie boobtsi",
+        Price: "mnoga deneg (100 rubley)"
     }]);
-
+    const xd = useMeState();
+    console.log(xd.user)
+    useEffect(() => {
+        queryMyFavourites(xd.user).then((res) => {
+            setFavourites(res.data)
+            console.log(res.data)
+        }).catch(err => {
+            console.log({message: "Ошибка во время добавления в избранное.", err: err.message, done: false});
+        })
+    }, []);
     return (
-        <div className="h-100">
+        <div>
             {favourites.length !== 0
                 ?
                 <div className={styles.querryDisplayContainer}>Тут находятся ваши любимые товары</div>

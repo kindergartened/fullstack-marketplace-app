@@ -4,7 +4,6 @@ import {SearchBox} from "./SearchBox/SearchBox";
 
 export const Navbar = ({ setShowMenu, setAuActive }) => {
     const [showSearch, setShowSearch] = useState(false);
-
     function onSearchBoxChanged(e) {
         console.log(e);
     }
@@ -22,7 +21,7 @@ export const Navbar = ({ setShowMenu, setAuActive }) => {
                 <div className={styles.navbut}>
                     {showSearch ? <SearchBox onChanged={onSearchBoxChanged}/> : null}
                     <button onClick={() => setShowSearch(prev => !prev)} className={styles.buts} id={styles['search']}/>
-                    <button className={styles.buts} id={styles['favourites']}/>
+                    <a href='favourites'><button className={styles.buts} id={styles['favourites']}/></a>
                     <a href="cart"><button className={styles.buts} id={styles['cart']}/></a>
                     <button onClick={()=> setAuActive(prev=>!prev)}className={styles.buts} id={styles['profile']}/>
                 </div>
