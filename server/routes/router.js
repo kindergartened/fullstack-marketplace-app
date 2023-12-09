@@ -11,6 +11,7 @@ import {
 import {verifyToken} from "../middlewares/auth.js";
 import {DBClose, DBConnect} from "../db/db.js";
 import {addToFav, deleteFromFavById, queryMyFavourites} from "../db/favourites.js";
+import {signJWT} from "../crypto/sessions.js";
 
 const router = new Router();
 
@@ -40,6 +41,11 @@ router.post("/", verifyToken, async (req, res) => {
     dbSession.connect();
     try {
         const user = await getUserByEmailTx(dbSession, req.user.email);
+        const newToken = signJWT(user.id, user.email, user.name);
+        res.cookie("user-session", newToken, {
+            httpOnly: true,
+            secure: true,
+        });
         res.status(200).json({message: "Welcome, " + req.user.name + "!", user: user});
     } catch (err) {
         return res.send({message: "Unexpected err.", err: err.message, done: false});

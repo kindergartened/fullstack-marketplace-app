@@ -1,20 +1,19 @@
-import React from 'react';
-import styles from './FavouritesCard.module.css';
+import React from "react";
+import styles from "./FavouritesCard.module.css";
 import {AiOutlineHeart} from "react-icons/ai";
 import {BsCartPlus} from "react-icons/bs";
-import { Card } from 'react-bootstrap';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import { useMeState } from '../../../hooks/state';
-import { addToFav } from '../../../api/api';
+import {Card} from "react-bootstrap";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+// import { useMeState } from "../../../hooks/state";
 
 const FavouritesCard = ({FavouriteItem}) => {
-    const xd = useMeState()
-    function addToCart() {
-        
+    // const xd = useMeState();
+    function addToCart () {
+
     }
-    function addToFavourite() {
-        //addToFav(xd.user,)
+    function addToFavourite () {
+    // addToFav(xd.user,)
     }
     return (
         <Card className={styles.container}>
@@ -30,7 +29,7 @@ const FavouritesCard = ({FavouriteItem}) => {
                     <Col sm={6} class="text-left">
                         <img className={styles.img} src="//placehold.it/200" alt="sans" />
                     </Col>
-                    
+
                 </Row>
             </Card.Body>
         </Card>

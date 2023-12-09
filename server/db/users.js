@@ -22,7 +22,10 @@ export async function login(req, res) {
         const compared = await compareHashPassword(user.hash_password, password);
         if (user && compared) {
             user.token = signJWT(user.id, email, user.name);
-
+            res.cookie("user-session", user.token, {
+                httpOnly: true,
+                secure: true,
+            });
             res.status(200).json(user);
         } else res.status(400).send("Invalid Credentials");
     } catch (err) {
@@ -55,6 +58,10 @@ export async function register(req, res) {
         await dbSession.query("INSERT INTO users (id, name, email, hash_password, created_at) VALUES ($1, $2, $3, $4, $5)", [id, name, email, hashPass, now]);
         const user = {email: email};
         user.token = signJWT(id, email, name);
+        res.cookie("user-session", user.token, {
+            httpOnly: true,
+            secure: true,
+        });
         return res.status(201).json({done: true, user: user});
     } catch (err) {
         return res.send({message: "Unexpected err.", err: err.message, done: false});

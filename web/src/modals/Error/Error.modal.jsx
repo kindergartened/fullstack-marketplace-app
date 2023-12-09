@@ -1,4 +1,3 @@
-import styles from "./Error.module.css";
 import {Modal} from "react-bootstrap";
 import {useErrorState} from "../../hooks/state";
 
@@ -10,5 +9,5 @@ export const ErrorModal = () => {
             <Modal.Header>Ошибка</Modal.Header>
             <Modal.Body>{error.message}</Modal.Body>
         </Modal>
-    )
-}
+    );
+};

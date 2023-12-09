@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import styles from "./Menu.module.css";
 
 export const Menu = ({isShow, setShowMenu}) => {
@@ -13,7 +13,7 @@ export const Menu = ({isShow, setShowMenu}) => {
     return (
         <div className={stylesBlur.join(" ") + " " + (isShow ? styles.blur : styles.hide)} onClick={() => {
             setShowMenu(false);
-            stylesBlur.push(styles.blur_container_zindex)
+            stylesBlur.push(styles.blur_container_zindex);
         }}>
             <div className={styles.menu + " " + (isShow ? styles.showMenuAnimation : styles.hideMenuAnimation)}>
                 <div className={styles.menu_content} onClick={e => e.stopPropagation()}>

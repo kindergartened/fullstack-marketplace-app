@@ -1,56 +1,53 @@
-import React, {useState} from 'react';
+import React, {useState} from "react";
 import {Modal, Form, Button} from "react-bootstrap";
-import styles from './auth.module.css';
+import styles from "./auth.module.css";
 import {login, register} from "../../api/api";
-import {setCookie} from "../../utils/cookies";
-import { useMeState } from '../../hooks/state';
+import {useMeState} from "../../hooks/state";
 
 export const Auth = ({active, setActive}) => {
     const [isAuth, setIsAuth] = useState(false);
     const [form, setForm] = useState({email: "", password: "", name: ""});
-    const xd = useMeState();
+    const me = useMeState();
 
-    function switchIsAuth() {
+    function switchIsAuth () {
         setIsAuth(prev => !prev);
     }
 
-    function onPasswordChanged($event) {
+    function onPasswordChanged ($event) {
         setForm(prev => {
             return {...prev, password: $event.target.value};
         });
     }
 
-    function onNameChanged($event) {
+    function onNameChanged ($event) {
         setForm(prev => {
             return {...prev, name: $event.target.value};
         });
     }
-    function onEmailChanged($event) {
+
+    function onEmailChanged ($event) {
         setForm(prev => {
             return {...prev, email: $event.target.value};
         });
     }
 
-    function submit($event) {
+    function submit ($event) {
         $event.preventDefault();
         if (isAuth) {
             login(form.email, form.password).then(res => {
-                setCookie(res.data.token);
                 setActive(false);
-                xd.setUser(res.data);
-                console.log(xd.user)
+                me.setUser(res.data);
             });
         } else {
             register(form.name, form.email, form.password).then(res => {
-                setCookie(res.data.token);
                 setActive(false);
-                xd.setUser(res.data);
+                me.setUser(res.data);
             });
         }
     }
 
-    return isAuth ?
-        <Modal className={styles.authoriz} onHide={setActive} show={active}>
+    return isAuth
+        ? <Modal className={styles.authoriz} onHide={setActive} show={active}>
             <Modal.Header closeButton className={styles.header}>
                 <span className={styles.headtxt}>Авторизация</span>
             </Modal.Header>
@@ -59,11 +56,12 @@ export const Auth = ({active, setActive}) => {
                     <Form.Group className={styles.formground}>
                         <Form.Label className={styles.formtxt}>Логин</Form.Label>
                         <Form.Control onChange={onEmailChanged} className={styles.formcontr} type="email"
-                                      placeholder="Введите адрес электронной почты"/>
+                            placeholder="Введите адрес электронной почты"/>
                     </Form.Group>
                     <Form.Group className={styles.formground}>
                         <Form.Label className={styles.formtxt}>Пароль</Form.Label>
-                        <Form.Control onChange={onPasswordChanged} className={styles.formcontr} type="password" placeholder="Введите пароль"/>
+                        <Form.Control onChange={onPasswordChanged} className={styles.formcontr} type="password"
+                            placeholder="Введите пароль"/>
                     </Form.Group>
                     <Form.Group className={styles.formground}>
                         <Form.Text className={styles.is_auth} onClick={switchIsAuth}>Зарегистрироваться</Form.Text>
@@ -83,16 +81,17 @@ export const Auth = ({active, setActive}) => {
                     <Form.Group className={styles.formground}>
                         <Form.Label className={styles.formtxt}>Ваше имя</Form.Label>
                         <Form.Control onChange={onNameChanged} className={styles.formcontr} type="text"
-                                      placeholder="Введите имя"/>
+                            placeholder="Введите имя"/>
                     </Form.Group>
                     <Form.Group className={styles.formground}>
                         <Form.Label className={styles.formtxt}>Логин</Form.Label>
                         <Form.Control onChange={onEmailChanged} className={styles.formcontr} type="email"
-                                      placeholder="Введите адрес электронной почты"/>
+                            placeholder="Введите адрес электронной почты"/>
                     </Form.Group>
                     <Form.Group className={styles.formground}>
                         <Form.Label className={styles.formtxt}>Пароль</Form.Label>
-                        <Form.Control onChange={onPasswordChanged} className={styles.formcontr} type="password" placeholder="Введите пароль"/>
+                        <Form.Control onChange={onPasswordChanged} className={styles.formcontr} type="password"
+                            placeholder="Введите пароль"/>
                     </Form.Group>
                     <Form.Group className={styles.formground}>
                         <Form.Text className={styles.is_auth} onClick={switchIsAuth}>Авторизоваться</Form.Text>
@@ -102,5 +101,5 @@ export const Auth = ({active, setActive}) => {
                     </Button>
                 </Form>
             </Modal.Body>
-        </Modal>
+        </Modal>;
 };
