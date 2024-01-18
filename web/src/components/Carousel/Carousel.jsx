@@ -1,18 +1,17 @@
-import React, {useCallback, useState} from 'react';
-import styles from './Carousel.module.css'
+import React, {useCallback, useState} from "react";
+import styles from "./Carousel.module.css";
 import {HiMiniArrowSmallRight, HiMiniArrowSmallLeft} from "react-icons/hi2";
-
 
 export const Carousel = ({data}) => {
     const [slide, setSlide] = useState(0);
 
     const nextSlide = useCallback(() => {
         setSlide(slide === data.length - 1 ? 0 : slide + 1);
-    }, [data.length, slide])
+    }, [data.length, slide]);
 
     const prevSlide = () => {
         setSlide(slide === 0 ? data.length - 1 : slide - 1);
-    }
+    };
 
     return (
         <div className={styles.carousel}>
@@ -21,7 +20,7 @@ export const Carousel = ({data}) => {
             </div>
             {data.map((item, index) => {
                 return <img src={item.src} alt={item.alt} key={index}
-                            className={slide === index ? styles.slide : styles.slide + " " + styles.slideHiden}/>
+                    className={slide === index ? styles.slide : styles.slide + " " + styles.slideHiden}/>;
             })}
             <div className={styles.arrow_container + " " + styles.arrow_container_right} onClick={nextSlide}>
                 <HiMiniArrowSmallRight className={styles.arrow}/>
@@ -29,7 +28,7 @@ export const Carousel = ({data}) => {
             <span className={styles.carousel_indicators}>
                 {data.map((_, index) => {
                     return <button key={index} onClick={() => setSlide(index)}
-                                   className={styles.indicator + " " + (slide === index ? "" : styles.indicator_inactive)}></button>
+                        className={styles.indicator + " " + (slide === index ? "" : styles.indicator_inactive)}></button>;
                 })}
             </span>
         </div>

@@ -1,0 +1,38 @@
+.container{
+    width: 515px;
+    margin: 5px;
+    border-color: gray;
+    border-width: 1px !important;
+    border:solid;
+}
+
+.img{
+    border-radius: 10px;
+}
+
+.buts {
+    width: 35px;
+    height: 35px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.buts + .buts {
+    margin-left: 5px;
+}
+
+.buts:hover {
+    fill: red;
+}
+
+.buts:active {
+    fill: red;
+}
+
+.PriceText{
+    
+}
+
+.DescriptionText{
+    padding-bottom: 50px;
+}

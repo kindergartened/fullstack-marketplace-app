@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
-import styles from './footer.module.css'
+import React from "react";
+import styles from "./footer.module.css";
 import {AiOutlineYoutube} from "react-icons/ai";
 import {SlSocialVkontakte} from "react-icons/sl";
 
 const navbut = [{value: "Главная", href: ""}, {value: "Контакты", href: ""},
-    {value: "Мы на карте", href: ""},{value: "О нас", href: ""},{value: "Наше приложение", href: ""}];
+    {value: "Мы на карте", href: ""}, {value: "О нас", href: ""}, {value: "Наше приложение", href: ""}];
 const helpbut = [{value: "Мои заказы", href: ""}, {value: "Условия доставки", href: ""},
-    {value: "Возврат", href: ""},{value: "Как оформить заказ", href: ""},{value: "Как выбрать размер", href: ""},
+    {value: "Возврат", href: ""}, {value: "Как оформить заказ", href: ""}, {value: "Как выбрать размер", href: ""},
     {value: "Частые вопросы", href: ""}];
 export const Footer = () => {
     return (
@@ -15,8 +15,8 @@ export const Footer = () => {
                 <div className={styles.map}>
                     <span>Мы на карте</span>
                     <iframe className={styles.yamap}
-                            src="https://yandex.ru/map-widget/v1/?ll=35.912908%2C56.856274&mode=poi&poi%5Bpoint%5D=35.909491%2C56.857224&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D2163878395&z=16.64"
-                            width="400" height="250"></iframe>
+                        src="https://yandex.ru/map-widget/v1/?ll=35.912908%2C56.856274&mode=poi&poi%5Bpoint%5D=35.909491%2C56.857224&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D2163878395&z=16.64"
+                        width="400" height="250"></iframe>
                 </div>
                 <div className={styles.nav}>
                     <span>Помощь</span>

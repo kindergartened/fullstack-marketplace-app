@@ -17,7 +17,7 @@ export async function addToFav(req, res) {
     let result;
 
     nextId(dbSession).then(async id => {
-        result = await dbSession.query("INSERT INTO favoutites (id, user_id, good_id, created_at) VALUES ($1, $2, $3, $4)", [id, userId, goodId, now]);
+        result = await dbSession.query("INSERT INTO favourites (id, user_id, good_id, created_at) VALUES ($1, $2, $3, $4)", [id, userId, goodId, now]);
         return res.send({done: true});
     }).catch(err => {
         return res.send({message: "Ошибка во время добавления в избранное.", err: err.message, done: false});
