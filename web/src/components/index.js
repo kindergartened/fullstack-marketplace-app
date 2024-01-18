@@ -8,3 +8,5 @@ export * from "../modals/Img/img.modal"
 export * from "../modals/Authorization/auth";
 export * from "./FavouritesList/FavouritesList";
 export * from "./FavouritesList/FavouritesCard/FavouritesCard";
+export * from "./NewAdidasBanner/nab";
+export * from "./HomePageCircleButs/hpcb";

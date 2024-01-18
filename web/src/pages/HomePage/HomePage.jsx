@@ -1,11 +1,15 @@
 import React from "react";
-import {Carousel} from "../../components";
+import {Carousel, Nab, Hpcb} from "../../components";
 import file from "../../components/Carousel/CarouselData.json";
 
 const {slides} = file;
 
 export const HomePage = () => {
     return (
-        <Carousel data={slides}/>
+        <div>
+            <Carousel data={slides}/>
+            <Nab/>
+            <Hpcb/>
+        </div>
     );
 };

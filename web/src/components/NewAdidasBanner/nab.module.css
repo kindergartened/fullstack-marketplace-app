@@ -1,0 +1,39 @@
+.nab {
+    
+    background-image: url("../../../public/banner\ 1.png");
+    margin:50px 0 50px 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1640px;
+    height: 400px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border: 5px solid black;
+    backdrop-filter: blur(5px);
+}
+
+.text {
+    font-family: 'Lato', sans-serif;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+}
+
+.newadi {
+    font-size: 96px;
+}
+
+.startsells {
+    font-size: 64px;
+} 
+
+.button {
+    font-weight:600;
+    width: 300px;
+    height: 100px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 20px;
+    font-size: 36px;
+}
