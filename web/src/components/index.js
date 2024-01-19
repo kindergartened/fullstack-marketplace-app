@@ -10,3 +10,4 @@ export * from "./FavouritesList/FavouritesList";
 export * from "./FavouritesList/FavouritesCard/FavouritesCard";
 export * from "./NewAdidasBanner/nab";
 export * from "./HomePageCircleButs/hpcb";
+export * from "./PopularGoods/popularGoods";

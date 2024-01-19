@@ -6,19 +6,19 @@ export const Hpcb = () => {
         <div className={styles.container}>
             <button className={styles.buttons}>
                     <div className={styles.image} id={styles.sneakers}/>
-                    <span>Кроссовки</span>
+                    <span className={styles.text}>Кроссовки</span>
                 </button>
                 <button className={styles.buttons}>
                     <div className={styles.image} id={styles.gumshoes}/>
-                    <span>Кеды</span>
+                    <span className={styles.text}>Кеды</span>
                 </button>
                 <button className={styles.buttons}>
                     <div className={styles.image} id={styles.slates}/>
-                    <span>Сланцы</span>
+                    <span className={styles.text}>Сланцы</span>
                 </button>
                 <button className={styles.buttons}>
                     <div className={styles.image} id={styles.socks}/>
-                    <span>Аксессуары</span>
+                    <span className={styles.text}>Аксессуары</span>
                 </button>
             {/* <div className={styles.sneakers}>
 

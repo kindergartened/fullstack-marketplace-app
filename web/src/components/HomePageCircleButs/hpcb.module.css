@@ -38,7 +38,11 @@
     box-shadow: 6px 4px 10px rgb(221, 221, 221);
 }
 
-
+.text {
+    margin: 25px auto 25px auto;
+    font-size: 24px;
+    font-family: 'Lato', sans-serif;
+}
 
 #sneakers {
     background-image: url("../../../public/butsimg/image\ 4.png");
@@ -55,3 +59,4 @@
 #socks {
     background-image: url("../../../public/butsimg/image\ 6.png");
 }
+
