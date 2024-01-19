@@ -16,12 +16,12 @@ const CardComponent = ({ CardItem }) => {
         <Card className={styles.card}>
             <Card.Img className={styles.image} variant="top" src={CardItem.img_url}/>
             <Card.Body className={styles.body}>
-                <Card.Title className={styles.title}>{CardItem.title}</Card.Title>
-                <Card.Text className={styles.Text}>{CardItem.price}</Card.Text>
+                <Card.Title className={styles.ShoesType+" "+styles.BrandnModel}>{CardItem.title}</Card.Title>
+                <Card.Text className={styles.Text+" "+styles.Rub}>{CardItem.price}</Card.Text>
             </Card.Body>
             <Card.Footer className={styles.footer}>
-                <AiOutlineHeart onClick={Favourite(CardItem.id)} className={styles.buts}/>
-                <BsCartPlus onClick={Cart(CardItem.id)} className={styles.buts}/>
+                <AiOutlineHeart onClick={Favourite(CardItem.id)} className={styles.heart}/>
+                <BsCartPlus onClick={Cart(CardItem.id)} className={styles.Cart}/>
             </Card.Footer>
         </Card>
     );
