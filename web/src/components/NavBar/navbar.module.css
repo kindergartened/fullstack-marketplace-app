@@ -27,6 +27,7 @@
 
 .navbut {
     display: flex;
+    justify-content: flex-end;
 }
 
 .buts:hover {

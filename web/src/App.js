@@ -1,34 +1,78 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import React, {createContext, useEffect, useState} from "react";
-import {Footer, Menu, Navbar} from "./components";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Menu, Navbar, Footer, Auth, ModalImgComponent} from "./components";
 import {CardPage, FavouritesPage, HomePage, Page404, SearchPage} from "./pages";
-import axios from "axios";
-import { auth } from './api/api';
-const MenuState = createContext([false, null]);
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {ErrorModal} from "./modals/Error/Error.modal";
+import {auth} from "./api/api";
+import toast, {Toaster} from "react-hot-toast";
 
-function App() {
+const defaultState = {
+    menu: {
+        showMenu: false,
+        setShowMenu: null
+    },
+    error: {
+        error: null,
+        setError: null
+    },
+    me: {
+        user: {},
+        setUser: null
+    }
+};
+
+export const GlobalState = createContext(defaultState);
+
+function App () {
+    const [modalActive, setModalActive] = useState(false);
+    const [auActive, setAuActive] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
-    const [state, setState] = useState(null);
-    const callBackendAPI = async () => {
-       //тут запрос через axios на сервер
-       auth()
-    };
-
-    // получение GET маршрута с сервера Express, который соответствует GET из server.js
+    const [error, setError] = useState(null);
+    const [user, setUser] = useState(null);
 
     useEffect(() => {
-        callBackendAPI()
-            .catch(err => console.log(err));
-    }, [])
+        auth().then((res) => {
+            toast(res.data.message, {
+                type: "success"
+            });
+            setUser(prev => {
+                return {
+                    ...prev,
+                    ...res.data.user
+                };
+            });
+            return res;
+        });
+    }, [setUser]);
+
+    const state = {
+        menu: {
+            showMenu,
+            setShowMenu
+        },
+        error: {
+            error,
+            setError
+        },
+        me: {
+            user,
+            setUser
+        }
+    };
+
     return (
-        <MenuState.Provider value={[showMenu, setShowMenu]}>
+        <GlobalState.Provider value={state}>
             <BrowserRouter>
+                <Auth active={auActive} setActive={setAuActive}/>
+                <ModalImgComponent active={modalActive} setActive={setModalActive}/>
+                {error && <ErrorModal/>}
+
                 <Menu isShow={showMenu} setShowMenu={setShowMenu}/>
-                <Navbar setShowMenu={setShowMenu}/>
+                <Navbar setShowMenu={setShowMenu} setAuActive={setAuActive}/>
                 <Routes>
                     <Route path="/" element={<HomePage/>}/>
                     <Route path="/search" element={<SearchPage/>}/>
@@ -37,10 +81,11 @@ function App() {
                     <Route path="*" element={<Page404/>}/>
                 </Routes>
                 <Footer/>
+                <Toaster />
             </BrowserRouter>
-        </MenuState.Provider>
-    )
+        </GlobalState.Provider>
+    );
 }
 
 export default App;
-//сделать запрос через axios(получить данные с бэка)
+

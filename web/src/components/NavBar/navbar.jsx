@@ -1,27 +1,31 @@
-import React, {useState} from 'react';
+import React, {useState} from "react";
 import styles from "./navbar.module.css";
-import SearchBox from "./SearchBox/SearchBox";
-import {Link} from "react-router-dom"
+import {SearchBox} from "./SearchBox/SearchBox";
+import {useMeState} from "../../hooks/state";
 
-export const Navbar = ({ setShowMenu }) => {
+export const Navbar = ({setShowMenu, setAuActive}) => {
     const [showSearch, setShowSearch] = useState(false);
-    
+    const me = useMeState();
+    function onSearchBoxChanged (e) {
+        console.log(e);
+    }
 
     return (
-        <div>
+        <div id = "navbar">
             <div className={styles.navbar}>
                 <div className={styles.catalog}>
-                    <button onClick={() => setShowMenu(prev => !prev)} className={styles.buts} id={styles['catalog']}/>
+                    <button onClick={() => setShowMenu(prev => !prev)} className={styles.buts} id={styles.catalog}/>
                 </div>
-                <Link to="/"><span className={styles.navtext}>SNEAKERS SHOP</span></Link>
-                <div className={styles.navbut}>
-                    {showSearch ? <SearchBox/> : null}
-                    <button onClick={() => setShowSearch(prev => !prev)} className={styles.buts} id={styles['search']}/>
-                    <Link to="/favourites"><button className={styles.buts} id={styles['favourites']}/></Link>
-                    <Link to="/cart">
-                        <button className={styles.buts} id={styles['cart']}/>
-                    </Link>
-                    <button className={styles.buts} id={styles['profile']}/>
+                <span className={styles.navtext}>SNEAKERS SHOP</span>
+                <div className="d-flex flex-column">
+                    <div className={styles.navbut}>
+                        {showSearch ? <SearchBox onChanged={onSearchBoxChanged}/> : null}
+                        <button onClick={() => setShowSearch(prev => !prev)} className={styles.buts} id={styles.search}/>
+                        <a href="/favourites"><button className={styles.buts} id={styles.favourites}/></a>
+                        <a href="/cart"><button className={styles.buts} id={styles.cart}/></a>
+                        <button onClick={() => setAuActive(prev => !prev)}className={styles.buts} id={styles.profile}/>
+                    </div>
+                    {me.user && <span className="">Вы вошли под пользователем: {me.user.name}!</span>}
                 </div>
             </div>
         </div>

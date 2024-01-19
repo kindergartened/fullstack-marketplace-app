@@ -1,0 +1,22 @@
+.header {
+    color: black;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 60px;
+}
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.cartitem {
+    width: 30%;
+}
+
+.goodcartimg {
+    width: 110px; 
+    height: 110px;
+}
