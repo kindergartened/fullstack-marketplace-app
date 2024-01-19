@@ -27,8 +27,8 @@ export const Carousel = ({data}) => {
             </div>
             <span className={styles.carousel_indicators}>
                     {data.map((_, index) => {
-                        return <div className={styles.indicatorbox}><button key={index} onClick={() => setSlide(index)}
-                            className={styles.indicator + " " + (slide === index ? "" : styles.indicator_inactive)}></button></div>;
+                        return <button key={index} onClick={() => setSlide(index)}
+                            className={styles.indicator + " " + (slide === index ? "" : styles.indicator_inactive)}></button>;
                     })}
             </span>
         </div>

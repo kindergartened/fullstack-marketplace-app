@@ -27,13 +27,13 @@
     color: white;
 }
 
-.indicatorbox {
+/* .indicatorbox {
     display: flex;
     position: relative;
     width: 30px;
     height: 30px;
     align-items: center;
-}
+} */
 
 .carousel_indicators {
     display: flex;
