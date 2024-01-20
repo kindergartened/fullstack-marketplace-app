@@ -5,7 +5,7 @@ import {AiOutlineHeart} from "react-icons/ai";
 import {BsCartPlus} from "react-icons/bs";
 import { addToCart, addToFav } from '../../../api/api';
 
-const CardComponent = ({ CardItem }) => {
+export const CardComponent = ({ CardItem }) => {
     const Favourite = () =>{
 
     }
@@ -26,4 +26,3 @@ const CardComponent = ({ CardItem }) => {
         </Card>
     );
 };
-export default CardComponent;

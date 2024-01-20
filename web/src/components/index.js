@@ -9,3 +9,5 @@ export * from "../modals/Authorization/auth";
 export * from "./FavouritesList/FavouritesList";
 export * from "./FavouritesList/FavouritesCard/FavouritesCard";
 export * from "../pages/CardPage/CardPage";
+export * from "./CardList/Card/card";
+export * from "./CardList/CardForCart/CardForCart";

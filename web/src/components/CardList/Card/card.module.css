@@ -29,9 +29,9 @@
     transform: translateY(-5px)
 }
 
-.card .image .card .body .card .footer {
+/* .card .image .card .body .card .footer {
     padding: 10px;
-}
+} */
 
 .image {
     /* width: 198px;
@@ -81,7 +81,7 @@
 .Text {
     /* 10 990 */
     position: absolute;
-    left: 10%;
+     left: 10%; 
     right: 50%;
     top: 67.14%;
     bottom: 21.43%;
@@ -142,8 +142,8 @@
     fill: red;
 }
 
-.footer {
+/* .footer {
     display: flex;
     justify-content: flex-end;
-}
+} */
 

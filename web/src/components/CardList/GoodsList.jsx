@@ -1,4 +1,4 @@
-import CardComponent from "./Card/card";
+import {CardComponent} from "./Card/card";
 import styles from "./GoodsList.module.css";
 
 export const GoodsList = ({goods}) => {
