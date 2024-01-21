@@ -8,6 +8,7 @@ import styles from './card.module.css';
 export const CardComponent = ({ CardItem }) => {
     // const Favourite = () =>{
 
+
     // }
     // const Cart = () =>{
         
@@ -30,3 +31,4 @@ export const CardComponent = ({ CardItem }) => {
         // </Card>
     );
 };
+

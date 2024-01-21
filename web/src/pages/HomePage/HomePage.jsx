@@ -2,6 +2,7 @@ import React from "react";
 import {Carousel, Nab, Hpcb, PopularGoods} from "../../components";
 import file from "../../components/Carousel/CarouselData.json";
 
+
 const {slides} = file;
 
 export const HomePage = () => {

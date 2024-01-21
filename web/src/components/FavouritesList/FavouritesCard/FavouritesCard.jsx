@@ -17,22 +17,22 @@ const FavouritesCard = ({FavouriteItem}) => {
     }
     return (
         <Card className={styles.container}>
-            <Card.Body>
+            <Card.Body className={styles.Body}>
                 <Row>
                     <Col>
                         <Card.Title>{FavouriteItem.Title}</Card.Title>
-                        <Card.Text className={styles.PriceText}>{FavouriteItem.Price}</Card.Text>
+                        <Card.Text className={styles.PriceText+" "+styles.Rub}>{FavouriteItem.Price}</Card.Text>
                         <Card.Text className={styles.DescriptionText}>{FavouriteItem.Description}</Card.Text>
                         <AiOutlineHeart onClick={() => addToFavourite()} className={styles.buts}/>
                         <BsCartPlus onClick={() => addToCart()} className={styles.buts}/>
                     </Col>
                     <Col sm={6} class="text-left">
-                        <img className={styles.img} src="//placehold.it/200" alt="sans" />
+                        <img className={styles.img} src={FavouriteItem.Img_url} />
                     </Col>
 
                 </Row>
             </Card.Body>
-        </Card>
+        </Card> 
     );
 };
 

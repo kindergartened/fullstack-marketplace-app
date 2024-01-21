@@ -5,10 +5,13 @@ export * from "./NavBar/navbar";
 export * from "./NavBar/Menu/Menu";
 export * from "./NavBar/SearchBox/SearchBox";
 export * from "./Carousel/Carousel";
-export * from "../modals/Img/img.modal"
+export * from "../modals/Img/img.modal";
 export * from "../modals/Authorization/auth";
 export * from "./FavouritesList/FavouritesList";
 export * from "./FavouritesList/FavouritesCard/FavouritesCard";
 export * from "./NewAdidasBanner/nab";
 export * from "./HomePageCircleButs/hpcb";
 export * from "./PopularGoods/popularGoods";
+export * from "../pages/CardPage/CardPage";
+export * from "./CardList/Card/card";
+export * from "./CardList/CardForCart/CardForCart";
