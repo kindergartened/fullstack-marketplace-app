@@ -1,4 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,700;1,900&display=swap');
+
 #webpack-dev-server-client-overlay
 {
     display: none;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Полоска */
+::-webkit-scrollbar-track {
+    background: rgb(0, 0, 0);
+    border: 10px solid transparent;
+    background-clip: content-box;
+}
+
+/* ячеечка */
+::-webkit-scrollbar-thumb {
+    background: rgb(160, 160, 160);
+    border: 1px solid rgb(160, 160, 160);
+    border-radius: 100px;
 }
