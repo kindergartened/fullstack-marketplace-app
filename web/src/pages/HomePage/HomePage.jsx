@@ -9,7 +9,7 @@ export const HomePage = () => {
     return (
         <div><Carousel data={slides}/>
             <CardComponent  CardItem={{id: "1", head: "Кросовка Рита", price: "300р"}}/>
-            {/* <CardComponentForCart Cardd={{id: "2", head: "Boots", price: "200р"}}/> */}
+             <CardComponentForCart CardItem={{id: "2", head: "Boots", price: "200р",src:"C:\Users\Ник\Desktop\garbage\Screenshot_2.png"}}/> 
             </div>  
               
 

@@ -32,7 +32,7 @@ const FavouritesCard = ({FavouriteItem}) => {
 
                 </Row>
             </Card.Body>
-        </Card>
+        </Card> 
     );
 };
 

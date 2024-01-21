@@ -119,7 +119,7 @@
     right: 7.6%;
     top: 84.86%;
     bottom: 8%;
-    /*background: url(image.png);*/
+    
 }
 .Cart{
     position: absolute;
@@ -127,7 +127,6 @@
     right: 20%;
     top: 84.86%;
     bottom: 8%;
-    /*background: url(image.png);*/ 
 }
 
 .buts + .buts {
@@ -146,4 +145,9 @@
     display: flex;
     justify-content: flex-end;
 } */
+
+
+
+
+
 
