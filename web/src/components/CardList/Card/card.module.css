@@ -1,4 +1,13 @@
-.card {
+.container {
+    width: 250px;
+    height: 350px;
+    background-color: aquamarine;
+}
+
+
+
+
+/* .card {
     width: 200px;
     height: max-content;
     border: 1px solid gray !important;
@@ -56,5 +65,5 @@
     display: flex;
     justify-content: flex-end;
     
-}
+} */
 

@@ -1,5 +1,5 @@
 import React from "react";
-import CardComponent from "../../components/CardList/Card/card";
+import {CardComponent} from "../../components/CardList/Card/card";
 
 export const CardPage = () => {
     return (

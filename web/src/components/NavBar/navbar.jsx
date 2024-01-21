@@ -16,7 +16,7 @@ export const Navbar = ({setShowMenu, setAuActive}) => {
                 <div className={styles.catalog}>
                     <button onClick={() => setShowMenu(prev => !prev)} className={styles.buts} id={styles.catalog}/>
                 </div>
-                <span className={styles.navtext}>SNEAKERS SHOP</span>
+                <span className={styles.navtext}>CROSSOVKI.SHOP</span>
                 <div className="d-flex flex-column">
                     <div className={styles.navbut}>
                         {showSearch ? <SearchBox onChanged={onSearchBoxChanged}/> : null}

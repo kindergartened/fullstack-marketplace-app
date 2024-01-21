@@ -1,5 +1,6 @@
 export * from "./Footer/footer";
 export * from "./CardList/GoodsList";
+export * from "./CardList/Card/card";
 export * from "./NavBar/navbar";
 export * from "./NavBar/Menu/Menu";
 export * from "./NavBar/SearchBox/SearchBox";
@@ -8,3 +9,6 @@ export * from "../modals/Img/img.modal"
 export * from "../modals/Authorization/auth";
 export * from "./FavouritesList/FavouritesList";
 export * from "./FavouritesList/FavouritesCard/FavouritesCard";
+export * from "./NewAdidasBanner/nab";
+export * from "./HomePageCircleButs/hpcb";
+export * from "./PopularGoods/popularGoods";
