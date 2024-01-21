@@ -1,9 +1,7 @@
 .nab {
     
     background-image: url("../../../public/banner\ 1.png");
-    margin:50px 0 50px 0;
-    margin-left: auto;
-    margin-right: auto;
+    margin:100px auto 100px auto;
     width: 1640px;
     height: 400px;
     overflow: hidden;

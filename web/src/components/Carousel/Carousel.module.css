@@ -5,7 +5,7 @@
     align-items: center;
     width: 1640px;
     height: 800px;
-    border-bottom: 2px solid rgba(0, 0, 0);
+    border-bottom: 0px solid rgba(0, 0, 0);
     background-color: black;
     overflow: hidden;
     margin-left: auto;
