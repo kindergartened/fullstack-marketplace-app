@@ -16,3 +16,32 @@
     font-family: "Arial Narrow", sans-serif;
     font-size: 23px;
 }
+.page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rectangle{
+    background-image: url("../../../public/Rectangle\ 2.png");
+    width: 1640px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    align-items: center;
+    border: 4px solid black;
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: space-around;
+    margin: -50px 0 0 -50px;
+}
+
+.textbox{
+    font-family: 'Lato', sans-serif;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    text-shadow: 5px 5px 4px #000000;
+}
+
+.text{
+    font-size: 96px;
+}
