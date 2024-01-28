@@ -45,10 +45,11 @@ export const FavouritesPage = () => {
                     </div>
                 </div>
             </div>
-            <span>Авторизируйтесь, чтоб посмотреть избранное</span>
             {favourites.length !== 0
                 ? <div className={styles.querryDisplayContainer}>Тут находятся ваши любимые товары</div>
-                : <div className={styles.querryDisplay}>Тут пока что ничего нет :&#40;</div>
+                : <div className={styles.querryDisplay + " w-100 text-center"}>
+                    <span>Тут пока что ничего нет :&#40;</span>
+                </div>
             }
             <div>
                 <FavouritesList favourites={favourites}/>
