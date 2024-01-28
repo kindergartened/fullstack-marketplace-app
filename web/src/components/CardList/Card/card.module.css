@@ -2,9 +2,118 @@
     width: 250px;
     height: 350px;
     background-color: aquamarine;
+     position: relative;
+ 
+}
+/* основа */
+.body{
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+background: #FFFFFF; 
+border-radius: 15px;
+}
+/* image 2 */
+.image{
+position: absolute;
+left: 4%;
+right: 4%;
+top: 2.86%;
+bottom: 34.29%;
+filter: drop-shadow(0px 1px 10.1px rgba(0, 0, 0, 0.25));
+border-radius: 15px 15px 0px 0px;
+
+}
+/* image 2 */
+
+
+
+
+/* fav */
+.heart {
+position: absolute;
+left: 82.4%;
+right: 7.6%;
+top: 84.86%;
+bottom: 8%;
+
+}
+
+/* cart */
+.cart{
+position: absolute;
+left: 70%;
+right: 20%;
+top: 84.86%;
+bottom: 8%;
+
+}
+
+/* 10 990 */
+.price{
+position: absolute;
+left: 10%;
+right: 50%;
+top: 67.14%;
+bottom: 21.43%;
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 29px;
+display: flex;
+align-items: center;
+
+color: #000000;
 }
 
 
+/* rub ico */
+
+/* position: absolute;
+left: 41.6%;
+right: 52.4%;
+top: 69.71%;
+bottom: 23.71%; */
+
+
+
+/* shoes type */
+.type{
+position: absolute;
+left: 10%;
+right: 42%;
+top: 78.57%;
+bottom: 11.43%;
+
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 17px;
+display: flex;
+align-items: center;
+
+color: #000000;
+}
+
+/* Brand & model */
+.brand{
+position: absolute;
+left: 10%;
+right: 42%;
+top: 88.57%;
+bottom: 5.71%;
+
+font-style: normal;
+font-weight: 800;
+font-size: 14px;
+line-height: 17px;
+display: flex;
+align-items: center;
+
+color: #000000;
+}
 
 
 /* .card {
