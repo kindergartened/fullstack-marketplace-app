@@ -10,7 +10,7 @@ export * from "../modals/Authorization/auth";
 export * from "./FavouritesList/FavouritesList";
 export * from "./FavouritesList/FavouritesCard/FavouritesCard";
 export * from "./NewAdidasBanner/nab";
-export * from "./HomePageCircleButs/hpcb";
+export * from "./HomePageCircleButs/catalogueButtons";
 export * from "./PopularGoods/popularGoods";
 export * from "../pages/CardPage/CardPage";
 export * from "./CardList/Card/card";

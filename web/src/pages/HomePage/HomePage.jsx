@@ -1,5 +1,5 @@
 import React from "react";
-import {Carousel, Nab, Hpcb, PopularGoods} from "../../components";
+import {Carousel, Nab, CatalogueButtons, PopularGoods} from "../../components";
 import file from "../../components/Carousel/CarouselData.json";
 
 
@@ -11,7 +11,7 @@ export const HomePage = () => {
             <Carousel data={slides}/>
             <PopularGoods/>
             <Nab/>
-            <Hpcb/>
+            <CatalogueButtons/>
         </div>
     );
 };

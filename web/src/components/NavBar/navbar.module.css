@@ -23,6 +23,7 @@
 }
 
 .navbut {
+    align-items: center;
     margin-top: auto;
     margin-bottom: auto;
     display: flex;

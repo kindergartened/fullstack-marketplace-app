@@ -32,11 +32,11 @@ export const FavouritesPage = () => {
             setFavourites(res.data);
             console.log(res.data);
         }).catch(err => {
-            console.log({message: "Ошибка во время добавления в избранное.", err: err.message, done: false});
+            console.log({message: "Ошибка во время получения избранных товаров.", err: err.message, done: false});
         });
     }, []);
-    return xd.user 
-    ? 
+    return xd.user
+        ?
         <div>
             <div className={styles.page}>
                 <div className={styles.rectangle}>
@@ -54,16 +54,18 @@ export const FavouritesPage = () => {
                 <FavouritesList favourites={favourites}/>
             </div>
         </div>
-    :
-    <div>
-        <div className={styles.page}>
-            <div className={styles.rectangle}>
-                <div className={styles.textbox}>
-                    <span className={styles.text}>ПОКУПАЙ ВЫГОДНО У НАС!</span>
+        :
+        <div>
+            <div className={styles.page}>
+                <div className={styles.rectangle}>
+                    <div className={styles.textbox}>
+                        <span className={styles.text}>ПОКУПАЙ ВЫГОДНО У НАС!</span>
+                    </div>
                 </div>
             </div>
+            <div className="text-center m-4 w-100">
+                <span>Авторизируйтесь, чтоб посмотреть избранное</span>
+            </div>
         </div>
-        <span>Авторизируйтесь, чтоб посмотреть избранное</span>
-    </div>
     ;
 };

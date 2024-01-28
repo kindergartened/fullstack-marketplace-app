@@ -66,9 +66,26 @@
 }
 
 ul li a {
+    cursor: pointer;
     margin: 15px;
     color: black;
     text-decoration: none;
+    position: relative;
+}
+
+ul li a:after {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    content: "";
+    transition: width 0.3s ease-out;
+}
+
+ul li a:focus:after, ul li a:hover:after {
+    width: 100%;
 }
 
 ul li {

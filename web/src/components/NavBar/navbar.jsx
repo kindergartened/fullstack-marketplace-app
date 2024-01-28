@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import styles from "./navbar.module.css";
 import {SearchBox} from "./SearchBox/SearchBox";
-import {useMeState} from "../../hooks/state";
+import {useNavigate} from "react-router-dom";
 
 export const Navbar = ({setShowMenu, setAuActive}) => {
     const [showSearch, setShowSearch] = useState(false);
-    const me = useMeState();
+    const navigate = useNavigate();
     function onSearchBoxChanged (e) {
         console.log(e);
     }
@@ -21,11 +21,10 @@ export const Navbar = ({setShowMenu, setAuActive}) => {
                     <div className={styles.navbut}>
                         {showSearch ? <SearchBox onChanged={onSearchBoxChanged}/> : null}
                         <button onClick={() => setShowSearch(prev => !prev)} className={styles.buts} id={styles.search}/>
-                        <a href="/favourites"><button className={styles.buts} id={styles.favourites}/></a>
-                        <a href="/cart"><button className={styles.buts} id={styles.cart}/></a>
+                        <a onClick={() => navigate("/favourites")}><button className={styles.buts} id={styles.favourites}/></a>
+                        <a onClick={() => navigate("/cart")}><button className={styles.buts} id={styles.cart}/></a>
                         <button onClick={() => setAuActive(prev => !prev)}className={styles.buts} id={styles.profile}/>
                     </div>
-                    {me.user && <span className="">Вы вошли под пользователем: {me.user.name}!</span>}
                 </div>
             </div>
         </div>

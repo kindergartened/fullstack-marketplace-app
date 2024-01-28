@@ -1,11 +1,13 @@
 import React from "react";
 import styles from "./Menu.module.css";
+import { useNavigate } from "react-router-dom";
 
 export const Menu = ({isShow, setShowMenu}) => {
+    const navigate = useNavigate();
     const items = [{value: "Главная", href: "/"}, {value: "Контакты", href: "/"},
         {value: "Мы на карте", href: "/#footer"}, {value: "О нас", href: "/"}];
-    const stylesBlur = [styles.blur_container];
 
+    const stylesBlur = [styles.blur_container];
     if (isShow) {
         delete stylesBlur[1];
     }
@@ -21,7 +23,7 @@ export const Menu = ({isShow, setShowMenu}) => {
                     <ul>
                         {items.map(item =>
                             <li key={item.value}>
-                                <a href={item.href}>{item.value}</a>
+                                <a onClick={() => navigate(item.href)}>{item.value}</a>
                             </li>
                         )}
                     </ul>
