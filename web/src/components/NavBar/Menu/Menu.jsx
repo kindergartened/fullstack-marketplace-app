@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export const Menu = ({isShow, setShowMenu}) => {
     const navigate = useNavigate();
-    const items = [{value: "Главная", href: "/"}, {value: "Контакты", href: "/"},
+    const items = [{value: "Главная", href: "/"}, {value: "Каталог", href: "/catalogue"},
         {value: "Мы на карте", href: "/#footer"}, {value: "О нас", href: "/"}];
 
     const stylesBlur = [styles.blur_container];

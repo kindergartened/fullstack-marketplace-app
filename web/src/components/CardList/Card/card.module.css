@@ -1,77 +1,79 @@
 .container {
     width: 250px;
     height: 350px;
-    background-color: aquamarine;
-     position: relative;
- 
+    position: relative;
+    background: #ffffff; 
+    border-radius: 15px;
+    border: 1px solid rgba(167, 167, 167, 0.418);
 }
-/* основа */
-.body{
-position: absolute;
-left: 0%;
-right: 0%;
-top: 0%;
-bottom: 0%;
-background: #FFFFFF; 
-border-radius: 15px;
+
+.container:hover {
+    transform: scale(1.02);
+    box-shadow: 6px 4px 10px rgb(221, 221, 221);
+    transition: all 0.2s ease-in;
 }
+.body {
+    padding: 1rem;
+}
+
 /* image 2 */
 .image{
-position: absolute;
-left: 4%;
-right: 4%;
-top: 2.86%;
-bottom: 34.29%;
-filter: drop-shadow(0px 1px 10.1px rgba(0, 0, 0, 0.25));
-border-radius: 15px 15px 0px 0px;
+    object-fit:cover;
+    object-position: 50% 70%;
+    margin:10px 10px 0px 10px;
+    height: 220px;
+    width: 230px;
+    border-radius: 15px 15px 0px 0px;
 
 }
-/* image 2 */
 
+.footer {
+    margin-top:0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.brand{
+    margin-top: 0.25rem;
+}
 
 
 /* fav */
-.heart {
-position: absolute;
-left: 82.4%;
-right: 7.6%;
-top: 84.86%;
-bottom: 8%;
-
+.heart, .cart{
+    fill: black;
+    width: 30px;
+    height: 30px;
 }
 
-/* cart */
-.cart{
-position: absolute;
-left: 70%;
-right: 20%;
-top: 84.86%;
-bottom: 8%;
-
+.cart {
+    margin-left: 0.25rem;
 }
+
+.cart:hover, .heart:hover{
+    transform: scale(1.2);
+    transition: all 0.1s ease-in;
+}
+
+
+
+
 
 /* 10 990 */
 .price{
-position: absolute;
-left: 10%;
-right: 50%;
-top: 67.14%;
-bottom: 21.43%;
-font-style: normal;
-font-weight: 700;
-font-size: 24px;
-line-height: 29px;
-display: flex;
-align-items: center;
-
-color: #000000;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #000000;
 }
 
 
 /* rub ico */
 
-/* position: absolute;
+/* 
 left: 41.6%;
 right: 52.4%;
 top: 69.71%;
@@ -81,98 +83,22 @@ bottom: 23.71%; */
 
 /* shoes type */
 .type{
-position: absolute;
-left: 10%;
-right: 42%;
-top: 78.57%;
-bottom: 11.43%;
-
-font-style: normal;
-font-weight: 700;
-font-size: 14px;
-line-height: 17px;
-display: flex;
-align-items: center;
-
-color: #000000;
+    font-weight: 500;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    color: #000000;
 }
 
 /* Brand & model */
 .brand{
-position: absolute;
-left: 10%;
-right: 42%;
-top: 88.57%;
-bottom: 5.71%;
-
-font-style: normal;
-font-weight: 800;
-font-size: 14px;
-line-height: 17px;
-display: flex;
-align-items: center;
-
-color: #000000;
-}
-
-
-/* .card {
-    width: 200px;
-    height: max-content;
-    border: 1px solid gray !important;
-    left: 50px;
-    transition: box-shadow 0.25s ease, transform 0.2s ease-in-out;
-    margin: 5px;
-}
-
-.card:hover {
-    border: 1px solid black !important;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-    transform: translateY(-5px)
-}
-
-.card .image .card .body .card .footer {
-    padding: 10px;
-}
-
-.image {
-    width: 198px;
-    height: 180px;
-}
-
-.title {
-    font-family: "Arial Narrow", sans-serif;
-    font-weight: bold !important;
-    text-align: left;
-}
-
-.Text {
-    font-family: "Arial Narrow", sans-serif;
-    text-align: left;
-}
-
-.buts {
-    width: 35px;
-    height: 35px;
-    box-sizing: border-box;
-    cursor: pointer;
-}
-
-.buts + .buts {
-    margin-left: 5px;
-}
-
-.buts:hover {
-    fill: red;
-}
-
-.buts:active {
-    fill: red;
-}
-
-.footer {
+    font-weight: 700;
+    font-size: 14px;
     display: flex;
-    justify-content: flex-end;
-    
-} */
+    align-items: center;
+    color: #000000;
+}
+
+
+
 

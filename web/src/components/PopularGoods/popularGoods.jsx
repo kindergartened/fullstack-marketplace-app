@@ -9,10 +9,10 @@ export const PopularGoods = () => {
                 <span>Популярно сейчас</span>
             </div>
             <div className={styles.container}>
-                <CardComponent CardItem={{id: "1", head: "Кросовка Рита", price: "300р"}}/>
-                <CardComponent CardItem={{id: "2", head: "Кросовка Рита", price: "300р"}}/>
-                <CardComponent CardItem={{id: "3", head: "Кросовка Рита", price: "300р"}}/>
-                <CardComponent CardItem={{id: "4", head: "Кросовка Рита", price: "300р"}}/>
+                <CardComponent CardItem={{id: "1", head: "Кросовка nike",  price: "10 900р",img_url:"https://a.lmcdn.ru/img600x866/M/P/MP002XM12G3E_21977738_2_v1.jpg"}}/>
+                <CardComponent CardItem={{id: "1", head: "Кросовка nike",  price: "10 900р",img_url:"https://a.lmcdn.ru/img600x866/M/P/MP002XM12G3E_21977738_2_v1.jpg"}}/>
+                <CardComponent CardItem={{id: "1", head: "Кросовка nike",  price: "10 900р",img_url:"https://a.lmcdn.ru/img600x866/M/P/MP002XM12G3E_21977738_2_v1.jpg"}}/>
+                <CardComponent CardItem={{id: "1", head: "Кросовка nike",  price: "10 900р",img_url:"https://a.lmcdn.ru/img600x866/M/P/MP002XM12G3E_21977738_2_v1.jpg"}}/>
             </div>
         </div>
     );
