@@ -4,7 +4,7 @@ import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import React, {createContext, useEffect, useState} from "react";
 import {Menu, Navbar, Footer, Auth, ModalImgComponent} from "./components";
-import {CardPage, FavouritesPage, HomePage, Page404, SearchPage} from "./pages";
+import {CartPage, FavouritesPage, HomePage, Page404, SearchPage} from "./pages";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {ErrorModal} from "./modals/Error/Error.modal";
 import {auth} from "./api/api";
@@ -76,7 +76,7 @@ function App () {
                 <Routes>
                     <Route path="/" element={<HomePage/>}/>
                     <Route path="/search" element={<SearchPage/>}/>
-                    <Route path="/cart" element={<CardPage/>}/>
+                    <Route path="/cart" element={<CartPage/>}/>
                     <Route path="/favourites" element={<FavouritesPage/>}/>
                     <Route path="*" element={<Page404/>}/>
                 </Routes>

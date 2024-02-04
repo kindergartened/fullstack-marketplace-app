@@ -1,0 +1,117 @@
+.container {
+    position: relative;
+    background: #ffffff;
+    border-radius: 15px;
+    border: 1px solid rgba(167, 167, 167, 0.418);
+    display: flex;
+    padding: 1rem;
+    width: 100%;
+}
+
+.container:hover {
+    box-shadow: 3px 2px 5px rgb(221, 221, 221);
+    transition: all 0.2s ease-in;
+}
+
+.body {
+}
+
+.image{
+    object-fit:cover;
+    object-position: 50% 70%;
+    margin:10px 10px 0 10px;
+    height: 180px;
+    width: 180px;
+    border-radius: 15px 15px 0 0;
+}
+
+.footer {
+    margin-top:0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand{
+    margin-top: 0.25rem;
+}
+
+.heart, .cart{
+    fill: black;
+    width: 30px;
+    height: 30px;
+}
+
+.cart {
+    margin-left: 0.25rem;
+}
+
+.cart:hover, .heart:hover{
+    transform: scale(1.2);
+    transition: all 0.1s ease-in;
+}
+
+.price{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+
+.type{
+    font-weight: 500;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+
+.brand{
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+
+.card_header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.counter {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.counter_btn {
+    border: 0;
+    background: none;
+    transition: 0.2s ease;
+}
+
+.counter_btn:hover {
+    background: #000000;
+    color: white;
+}
+
+.counter .counter_btn, .counter span {
+    padding: 0.25rem 0.75rem;
+}
+
+.card_del {
+    font-size: 32px;
+    transition: 0.2s ease;
+    border-radius: 3px;
+    padding: 0.25rem;
+    cursor: pointer;
+}
+
+.card_del:hover {
+    background: #000;
+    color: #fff;
+}

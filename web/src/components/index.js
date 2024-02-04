@@ -12,6 +12,6 @@ export * from "./FavouritesList/FavouritesCard/FavouritesCard";
 export * from "./NewAdidasBanner/nab";
 export * from "./HomePageCircleButs/catalogueButtons";
 export * from "./PopularGoods/popularGoods";
-export * from "../pages/CardPage/CardPage";
+export * from "../pages/CartPage/CartPage";
 export * from "./CardList/Card/card";
 export * from "./CardList/CardForCart/CardForCart";

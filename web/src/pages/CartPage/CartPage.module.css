@@ -1,0 +1,82 @@
+.side_part {
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 1rem;
+    height: fit-content;
+}
+
+.sale {
+    color: #003CD8;
+}
+
+.width65 {
+    width: 65%;
+}
+
+.promo {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    padding: 0.5rem 0;
+    flex-flow: wrap;
+}
+
+.promo_input {
+    font-size: 18px;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 2px black solid;
+    text-align: center;
+    transition: 0.2s ease;
+}
+
+.promo_input_active {
+    border-bottom: 2px #003CD8 solid;
+}
+
+.promo_submit {
+    background: none;
+    border: 2px solid black;
+    transition: 0.2s ease;
+    border-radius: 5px;
+}
+
+.promo_submit:hover, .promo_active {
+    border: 2px solid #003CD8;
+    background: #003CD8;
+    color: #FFFFFF;
+}
+
+.promo_submit:hover {
+
+}
+
+.total_price {
+    color: black;
+    font-size: 24px;
+    margin-top: 1rem;
+}
+
+.make_order_container {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    margin-top: 1.5rem;
+}
+
+.make_order {
+    width: 75%;
+    padding: 0.75rem;
+    background: black;
+    border: 2px black solid;
+    color: white;
+    border-radius: 10px;
+    transition: 0.2s ease;
+}
+
+.make_order:hover {
+    background: #003CD8;
+    border: 2px #003CD8 solid;
+}
