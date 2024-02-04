@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import styles from "./CartPage.module.css";
-import { CardHorizontal } from "../../components/CardList/CardHorizontal/CardHorizontal";
+import {CardHorizontal} from "../../components/CardList/CardHorizontal/CardHorizontal";
 
 export const CartPage = () => {
     const [promoApplied, setPromoApplied] = useState(false);

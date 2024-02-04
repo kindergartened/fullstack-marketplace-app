@@ -16,8 +16,8 @@ export const CardComponent = ({CardItem}) => {
                         <span className={styles.brand}>{"CardItem.title"}</span>
                     </div>
                     <div className={styles.buts}>
-                        <AiOutlineHeart onClick={Favourite(CardItem.id)} className={styles.heart}/>
-                        <LiaCartArrowDownSolid onClick={Cart(CardItem.id)} className={styles.cart}/>
+                        <AiOutlineHeart onClick={CardItem.id} className={styles.heart}/>
+                        <LiaCartArrowDownSolid onClick={CardItem.id} className={styles.cart}/>
                     </div>
                 </div>
             </div>
