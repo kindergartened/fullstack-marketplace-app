@@ -6,7 +6,9 @@ import {
     getGoods, getUserByEmailTx,
     getUserById,
     increaseGoodCart, login, queryMyCart,
-    register
+    register,
+    queryCoupons,applyCouponToCart,CancelCouponFromCart,
+    CreateOrder,GetOrders
 } from "../db/index.js";
 import {verifyToken} from "../middlewares/auth.js";
 import {DBClose, DBConnect} from "../db/db.js";
@@ -34,7 +36,13 @@ router.delete('/delete_from_cart', deleteFromCart);
 router.post('/decrease_good_cart', decreaseGoodCart);
 router.post('/increase_good_cart', increaseGoodCart);
 router.get('/get_my_cart', queryMyCart);
-
+//coupons
+router.get('/coupons',queryCoupons);
+router.post('/coupons',applyCouponToCart);
+router.post('/coupons',CancelCouponFromCart);
+//orders
+router.post('/orders',CreateOrder);
+router.get('/orders',GetOrders);
 // Middlewares
 router.post("/", verifyToken, async (req, res) => {
     const dbSession = DBConnect();

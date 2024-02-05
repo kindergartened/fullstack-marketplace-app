@@ -33,7 +33,7 @@ create sequence carts_id_seq;
 
 
 
-INSERT INTO goods (id, title, description, price, img_url, created_at) values (1, 'Puma', 'good puma', 100, 'https://static.street-beat.ru/upload/iblock/a47/z15gk831h2yxkz612cm7znod7vie72bv.jpg', '2023-01-01');
+INSERT INTO goods (id, title, description, price, img_url, created_at) values (1, 'Puma', 'good puma', 100, 'https://static.street-beat.ru/upload/iblock/a47/z15gk831h2yxkz612cm7znod7vie72bv.jpg','2023-01-01');
 INSERT INTO goods (id, title, description, price, img_url, created_at) values (2, 'Adidas', 'good abibas', 150, 'https://static.wixstatic.com/media/8f3362_d1cb37f3c1384573af6b18a9f2359ed8~mv2.jpg/v1/fill/w_600,h_527,fp_0.50_0.50,lg_1,q_80,enc_auto/8f3362_d1cb37f3c1384573af6b18a9f2359ed8~mv2.jpg', '2023-01-01');
 INSERT INTO goods (id, title, description, price, img_url, created_at) values (3, 'Nike', 'good nike', 200, 'https://outmaxshop.ru/components/com_jshopping/files/img_products/37953/nike-air-force-1-low-x-tiffany-37953-1.jpg', '2023-01-01');
 INSERT INTO goods (id, title, description, price, img_url, created_at) values (4, 'Rita', 'good rita', 177, 'https://main-cdn.sbermegamarket.ru/big1/hlr-system/199/280/973/525/029/100053095372b0.jpg', '2023-01-01');
