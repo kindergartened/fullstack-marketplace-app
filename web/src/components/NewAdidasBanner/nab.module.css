@@ -1,6 +1,6 @@
 .nab {
-    
-    background-image: url("../../../public/banner\ 1.png");
+
+    background-image: url("../../../public/Banner1.png");
     margin:100px auto 100px auto;
     width: 1640px;
     height: 400px;
@@ -26,7 +26,7 @@
 
 .startsells {
     font-size: 64px;
-} 
+}
 
 .button {
     font-weight:600;

@@ -20,6 +20,10 @@ app.use(cors({
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(AppRouter);
 app.use(cookieParser());
+app.use(bodyParser.json());
+
+app.use(express.static("public"));
+app.use("/images", express.static("images"));
+app.use(AppRouter);
+

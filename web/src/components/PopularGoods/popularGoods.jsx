@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./popularGoods.module.css";
-import {CardComponent} from "../CardList/Card/card";
+import {CardComponent} from "../CardList/Card/CardComponent";
 
 export const PopularGoods = () => {
     return (

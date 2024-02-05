@@ -1,8 +1,13 @@
-import styles from "./card.module.css";
+import styles from "./CardComponent.module.css";
 import {AiOutlineHeart} from "react-icons/ai";
 import {LiaCartArrowDownSolid} from "react-icons/lia";
 
 export const CardComponent = ({CardItem}) => {
+
+    const addToCart = () => {};
+
+    const addToFavourites = () => {};
+
     return (
         <div className={styles.container}>
             <div>
@@ -16,8 +21,8 @@ export const CardComponent = ({CardItem}) => {
                         <span className={styles.brand}>{"CardItem.title"}</span>
                     </div>
                     <div className={styles.buts}>
-                        <AiOutlineHeart onClick={CardItem.id} className={styles.heart}/>
-                        <LiaCartArrowDownSolid onClick={CardItem.id} className={styles.cart}/>
+                        <AiOutlineHeart onClick={addToFavourites} className={styles.heart}/>
+                        <LiaCartArrowDownSolid onClick={addToCart} className={styles.cart}/>
                     </div>
                 </div>
             </div>
