@@ -8,7 +8,7 @@ export const CartPage = () => {
     const applyPromo = () => setPromoApplied(prev => !prev);
 
     return (
-        <div className="h-100 w-100 d-flex justify-content-center">
+        <div className="h-100 w-100 d-flex justify-content-center mt-5">
             <div className="d-flex w-75 mt-3 justify-content-between">
                 <div className={"d-flex flex-column pt-3 " + styles.width65}>
                     <span className="fs-4 mb-3">Корзина товаров</span>
