@@ -64,7 +64,7 @@ export const FavouritesPage = () => {
                     </div>
                 </div>
             </div>
-            <div className="text-center m-4 w-100">
+            <div className="text-center mt-4 mb-4 w-100">
                 <span>Авторизируйтесь, чтоб посмотреть избранное</span>
             </div>
         </div>
