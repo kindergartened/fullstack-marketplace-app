@@ -2,9 +2,19 @@ import { DBClient } from "../db/db.js";
 import { compareHashPassword, hashPassword } from "../crypto/passwords.js";
 import { signJWT } from "../crypto/sessions.js";
 import { getUserByEmailTx, getUserById, registerUser } from "../db/index.js";
+import { FavouritesService } from "./favourites_service.js";
+import { CartService } from "./cart_service.js";
 
 export class UsersService {
-    async login (req, res) {
+    favouritesService;
+    cartService;
+
+    constructor () {
+        this.favouritesService = new FavouritesService();
+        this.cartService = new CartService();
+    }
+
+    login = async (req, res) => {
         const {
             email,
             password
@@ -27,6 +37,9 @@ export class UsersService {
                     httpOnly: true,
                     secure: true,
                 });
+                user.favourites = (await this.favouritesService.queryMyFavouritesTx(dbClient, user.id));
+                user.cart = (await this.cartService.queryMyCartTx(dbClient, user.id));
+
                 res.status(200).json(user);
             } else {
                 res.status(400).send("Неверный логин или пароль");
@@ -44,7 +57,7 @@ export class UsersService {
         }
     }
 
-    async register (req, res) {
+    register = async (req, res) => {
         const {
             email,
             name,
@@ -72,6 +85,8 @@ export class UsersService {
                     httpOnly: true,
                     secure: true,
                 });
+                user.favourites = [];
+                user.cart = [];
                 res.status(201).json({
                     done: true,
                     user: user
@@ -92,7 +107,7 @@ export class UsersService {
         }
     }
 
-    async getUserById (req, res) {
+    getUserById = async (req, res) => {
         let id = req.params.id;
 
         const dbClient = new DBClient();
@@ -117,7 +132,7 @@ export class UsersService {
         }
     }
 
-    async verifyUserMiddleware (req, res) {
+    verifyUserMiddleware = async (req, res) => {
         const dbClient = new DBClient();
         await dbClient.NewPool();
         await dbClient.Begin();
@@ -129,6 +144,9 @@ export class UsersService {
                 httpOnly: true,
                 secure: true,
             });
+
+            user.favourites = await this.favouritesService.queryMyFavouritesTx(dbClient, user.id);
+            user.cart = await this.cartService.queryMyCartTx(dbClient, user.id);
             res.status(200).json({
                 message: "Добро пожаловать, " + req.user.name + "!",
                 user: user

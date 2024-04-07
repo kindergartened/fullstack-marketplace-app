@@ -1,18 +1,30 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./popularGoods.module.css";
 import {CardComponent} from "../CardList/Card/CardComponent";
+import {getGoods} from "../../api";
 
 export const PopularGoods = () => {
+    const [popular, setPopular] = useState([]);
+
+    useEffect(() => {
+        getGoods().then(goods => {
+            if (goods.data && goods.data.length) {
+                setPopular(goods.data.splice(0,4));
+            }
+        });
+    }, [setPopular]);
+
     return (
         <div>
             <div className={styles.text}>
                 <span>Популярно сейчас</span>
             </div>
             <div className={styles.container}>
-                <CardComponent CardItem={{id: "1", head: "Кросовка nike",  price: "10 900р",img_url:"https://a.lmcdn.ru/img600x866/M/P/MP002XM12G3E_21977738_2_v1.jpg"}}/>
-                <CardComponent CardItem={{id: "1", head: "Кросовка nike",  price: "10 900р",img_url:"https://a.lmcdn.ru/img600x866/M/P/MP002XM12G3E_21977738_2_v1.jpg"}}/>
-                <CardComponent CardItem={{id: "1", head: "Кросовка nike",  price: "10 900р",img_url:"https://a.lmcdn.ru/img600x866/M/P/MP002XM12G3E_21977738_2_v1.jpg"}}/>
-                <CardComponent CardItem={{id: "1", head: "Кросовка nike",  price: "10 900р",img_url:"https://a.lmcdn.ru/img600x866/M/P/MP002XM12G3E_21977738_2_v1.jpg"}}/>
+                {popular.length &&
+                    popular.map((item) => (
+                        <CardComponent key={item.id} CardItem={item}/>
+                    ))
+                }
             </div>
         </div>
     );

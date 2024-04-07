@@ -2,7 +2,7 @@ import { getGoods } from "../db/index.js";
 import { DBClient } from "../db/db.js";
 
 export class GoodsService {
-    async getGoods(req, res) {
+    getGoods = async (req, res) => {
         const dbClient = new DBClient();
         await dbClient.NewPool();
         await dbClient.Begin();

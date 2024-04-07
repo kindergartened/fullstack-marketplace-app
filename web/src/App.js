@@ -2,13 +2,13 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import React, { createContext, useEffect, useState } from "react";
-import { Menu, Navbar, Footer, Auth, ModalImgComponent } from "./components";
-import { CartPage, FavouritesPage, HomePage, Page404, SearchPage } from "./pages";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { ErrorModal } from "./modals/Error/Error.modal";
-import { auth } from "./api/api";
-import toast, { Toaster } from "react-hot-toast";
+import React, {createContext, useEffect, useState} from "react";
+import {Menu, Navbar, Footer, Auth, ModalImgComponent} from "./components";
+import {CartPage, FavouritesPage, HomePage, Page404, SearchPage} from "./pages";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {ErrorModal} from "./modals/Error/Error.modal";
+import toast, {Toaster} from "react-hot-toast";
+import {auth, userGraph} from "./api";
 
 const defaultState = {
     menu: {
@@ -37,13 +37,15 @@ function App () {
     useEffect(() => {
         auth().then((res) => {
             if (res) {
+                const user = userGraph(res.data.user);
+                console.log(user);
                 toast(res.data.message, {
                     type: "success"
                 });
                 setUser(prev => {
                     return {
                         ...prev,
-                        ...res.data.user
+                        ...user
                     };
                 });
             }

@@ -1,8 +1,15 @@
 import { DBClient } from "../db/db.js";
-import { addToCart, deleteFromCart, getCartGoodById, queryMyCart, updateGoodCartCount } from "../db/index.js";
+import {
+    addToCart,
+    deleteFromCart,
+    getCartGoodById, getCartGoodByUserGoodId,
+    getGoodsByIds,
+    queryMyCart,
+    updateGoodCartCount
+} from "../db/index.js";
 
 export class CartService {
-    async addToCart (req, res) {
+    addToCart = async (req, res) => {
         const {
             userId,
             goodId
@@ -15,7 +22,11 @@ export class CartService {
         let now = new Date();
 
         try {
-            await addToCart(dbClient, userId, goodId, now);
+            const exist = (await getCartGoodByUserGoodId(dbClient, goodId, userId)).rows;
+            if (exist.length) {
+                await updateGoodCartCount(dbClient, exist[0].count + 1, exist[0].id);
+            } else await addToCart(dbClient, userId, goodId, now);
+            res.status(200).json({ done: true });
             await dbClient.Commit();
         } catch (err) {
             res.send({
@@ -25,12 +36,11 @@ export class CartService {
             });
             await dbClient.Rollback();
         } finally {
-            res.send({ done: true });
             await dbClient.Release();
         }
     }
 
-    async deleteFromCart (req, res) {
+    deleteFromCart = async (req, res) => {
         const { id } = req.body;
 
         const dbClient = new DBClient();
@@ -54,7 +64,7 @@ export class CartService {
 
     }
 
-    async increaseGoodCart (req, res) {
+    increaseGoodCart = async (req, res) => {
         const { id } = req.body;
 
         const dbClient = new DBClient();
@@ -81,7 +91,7 @@ export class CartService {
 
     }
 
-    async decreaseGoodCart (req, res) {
+    decreaseGoodCart = async (req, res) => {
         const { id } = req.body;
 
         const dbClient = new DBClient();
@@ -110,16 +120,19 @@ export class CartService {
         }
     }
 
-    async queryMyCart (req, res) {
+    queryMyCart = async (req, res) => {
         const { userId } = req.body;
 
         const dbClient = new DBClient();
         await dbClient.NewPool();
         await dbClient.Begin();
-        let result;
+        let output = {
+            Rows: {},
+            Graph: {}
+        }
 
         try {
-            result = await queryMyCart(dbClient, userId);
+            output = await this.queryMyCartTx(dbClient, userId);
             await dbClient.Commit();
         } catch (err) {
             res.send({
@@ -129,9 +142,24 @@ export class CartService {
             });
             await dbClient.Rollback();
         } finally {
-            res.send(result.rows);
+            res.send(output);
             await dbClient.Release();
         }
+    }
 
+    queryMyCartTx = async (client, userId) => {
+        const output = {
+            Rows: {},
+            Graph: {}
+        }
+        let goodIds, goods;
+        const result = (await queryMyCart(client, userId)).rows;
+        if (result.length) {
+            goodIds = result.map(e => e.good_id);
+            goods = (await getGoodsByIds(client, goodIds)).rows;
+        }
+        output.Rows = result;
+        output.Graph = {Goods: goods};
+        return output;
     }
 }

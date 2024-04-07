@@ -20,7 +20,7 @@ async function post(path, body) {
     });
 }
 
-async function delet(path, body) {
+async function apiDelete(path, body) {
     return await axios.delete(`${host}${path}`, body).catch(function (err) {
         toast(err.response.data, {
             position: "top-right",
@@ -59,17 +59,17 @@ export async function addToFav(userId,goodId) {
     return await post("/add_to_fav",{userId: userId, goodId: goodId});
 }
 export async function deleteFromFavById(goodId) {
-    return await delet("/delete_fav_by_id",{goodId: goodId});
+    return await apiDelete("/delete_fav_by_id",{goodId: goodId});
 }
 export async function queryMyFavourites(userId) {
     return await get("/my_fav",{userId: userId});
 }
 
-export async function addToCart(goodId) {
-    return await post("/add_to_cart",{userId: 0, goodId: goodId});
+export async function addToCart(goodId, userId) {
+    return await post("/add_to_cart",{userId: userId, goodId: goodId});
 }
 export async function deleteFromCart(goodId) {
-    return await delet("/delete_from_cart",{goodId: goodId});
+    return await apiDelete("/delete_from_cart",{goodId: goodId});
 }
 export async function decreaseGoodCart(goodId) {
     return await post("/decrease_good_cart",{goodId: goodId});

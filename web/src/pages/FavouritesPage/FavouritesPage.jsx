@@ -29,8 +29,7 @@ export const FavouritesPage = () => {
     const xd = useMeState();
     useEffect(() => {
         queryMyFavourites(xd.user).then((res) => {
-            setFavourites(res.data);
-            console.log(res.data);
+            setFavourites(res.data.Rows);
         }).catch(err => {
             console.log({message: "Ошибка во время получения избранных товаров.", err: err.message, done: false});
         });

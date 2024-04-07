@@ -1,8 +1,9 @@
 import { DBClient } from "../db/db.js";
 import { addToFav, queryMyFavourites } from "../db/favourites.js";
+import { getGoodsByIds } from "../db/index.js";
 
 export class FavouritesService {
-    async addToFav(req, res) {
+    addToFav = async (req, res) => {
         const {userId, goodId} = req.body;
 
         const dbClient = new DBClient();
@@ -23,7 +24,7 @@ export class FavouritesService {
         }
     }
 
-    async deleteFromFavById(req, res) {
+    deleteFromFavById = async (req, res) => {
         const {id} = req.body;
 
         const dbClient = new DBClient();
@@ -43,26 +44,45 @@ export class FavouritesService {
 
     }
 
-    async queryMyFavourites(req, res) {
+    queryMyFavourites = async (req, res) => {
         const {userId} = req.body;
 
         const dbClient = new DBClient();
         await dbClient.NewPool();
         await dbClient.Begin();
 
-        let result;
+        let output = {
+            Rows: {},
+            Graph: {}
+        }
 
         try {
-            result = await queryMyFavourites(dbClient, userId);
+            output = await this.queryMyFavouritesTx(dbClient, userId);
             await dbClient.Commit();
         } catch (err) {
             res.send({message: "Ошибка получения избранных товаров.", err: err.message, done: false});
             await dbClient.Rollback();
         } finally {
-            res.send(result.rows);
+            res.send(output);
             await dbClient.Release();
         }
 
+    }
+
+    queryMyFavouritesTx = async (client, userId) => {
+        const output = {
+            Rows: {},
+            Graph: {}
+        }
+        const result = await queryMyFavourites(client, userId);
+        let goodIds, goods;
+        if (result.rows.length) {
+            goodIds = result.rows.map(e => e.id);
+            goods = getGoodsByIds(client, goodIds);
+        }
+        output.Rows = result.rows;
+        output.Graph = {Goods: goods};
+        return output;
     }
 
 }
