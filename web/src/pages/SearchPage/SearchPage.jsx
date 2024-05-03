@@ -32,7 +32,7 @@ export const SearchPage = () => {
     };
 
     return (
-        <div>
+        <div className={styles.searchBlock}>
             {goods.filter(item => item.title.includes(searchQuery)).length !== 0
                 ? <div className="h-100">
                     <div className={styles.querryDisplayContainer}>

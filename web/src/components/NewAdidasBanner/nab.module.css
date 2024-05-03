@@ -37,3 +37,8 @@
     border-radius: 20px;
     font-size: 36px;
 }
+
+.button:hover {
+    transform: scale(1.02);
+    transition: all 0.1s ease-in;
+}

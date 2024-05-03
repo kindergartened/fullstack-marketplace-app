@@ -3,6 +3,7 @@
     padding-bottom: 15px;
     font-family: "Arial Narrow", sans-serif;
     font-size: 23px;
+    color: black;
     
 }
 
@@ -10,11 +11,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid;
     margin-bottom: 5px;
 }
 
 .cardListContainer{
-    display: flex;
-    flex-flow: wrap;
+    display: grid;
+    grid-column-gap: 20px;
+    grid-row-gap: 3em;
+}
+
+.searchBlock{
+    margin: 0 50px 0 50px;
 }
