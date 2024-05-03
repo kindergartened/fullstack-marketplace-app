@@ -63,7 +63,7 @@
 
 .type{
     font-weight: 500;
-    font-size: 14px;
+    font-size: 18px;
     display: flex;
     align-items: center;
     color: #000000;
@@ -71,7 +71,7 @@
 
 .brand{
     font-weight: 700;
-    font-size: 14px;
+    font-size: 24px;
     display: flex;
     align-items: center;
     color: #000000;
@@ -114,4 +114,25 @@
 .card_del:hover {
     background: #000;
     color: #fff;
+}
+
+.heart, .cart {
+    fill: black;
+    width: 30px;
+    height: 30px;
+}
+
+.red_heart {
+    fill: red;
+    width: 30px;
+    height: 30px;
+}
+
+.cart {
+    margin-left: 0.25rem;
+}
+
+.cart:hover, .heart:hover, .red_heart:hover {
+    transform: scale(1.2);
+    transition: all 0.1s ease-in;
 }

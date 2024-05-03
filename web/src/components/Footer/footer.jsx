@@ -19,10 +19,10 @@ export const Footer = () => {
             <div className={styles.copyright}>
                 <span>©2024 Kindergarten Solnishko Group.</span>
                 <div className={styles.buts}>
-                    <a href="https://www.youtube.com/@vladimirbillig1229" target="_blank">
+                    <a rel="noreferrer" href="https://www.youtube.com/@vladimirbillig1229" target="_blank">
                         <AiOutlineYoutube className={styles.social_btn}/>
                     </a>
-                    <a href="https://vbillig.ru/" target="_blank">
+                    <a rel="noreferrer" href="https://vbillig.ru/" target="_blank">
                         <BiBook className={styles.social_btn}/>
                     </a>
                 </div>

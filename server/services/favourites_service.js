@@ -1,10 +1,13 @@
 import { DBClient } from "../db/db.js";
-import { addToFav, queryMyFavourites } from "../db/favourites.js";
+import { addToFav, deleteFromFavById, getFromFavByGoodUserIds, queryMyFavourites } from "../db/favourites.js";
 import { getGoodsByIds } from "../db/index.js";
 
 export class FavouritesService {
     addToFav = async (req, res) => {
-        const {userId, goodId} = req.body;
+        const {
+            userId,
+            goodId
+        } = req.body;
 
         const dbClient = new DBClient();
         await dbClient.NewPool();
@@ -14,38 +17,48 @@ export class FavouritesService {
 
         try {
             await addToFav(dbClient, userId, goodId, now);
+            res.send({ done: true });
             await dbClient.Commit();
         } catch (err) {
-            res.send({message: "Ошибка во время добавления в избранное.", err: err.message, done: false});
+            res.status(500).send({
+                message: "Ошибка во время добавления в избранное.",
+                err: err.message,
+                done: false
+            });
             await dbClient.Rollback();
         } finally {
-            res.send({done: true});
             await dbClient.Release();
         }
-    }
+    };
 
     deleteFromFavById = async (req, res) => {
-        const {id} = req.body;
+        const { userId, goodId } = req.body;
 
         const dbClient = new DBClient();
         await dbClient.NewPool();
         await dbClient.Begin();
 
         try {
-            await addToFav(dbClient, id);
+            const fav = (await getFromFavByGoodUserIds(dbClient, userId, goodId)).rows[0];
+            await deleteFromFavById(dbClient, fav.id);
             await dbClient.Commit();
+            res.send({ done: true });
         } catch (err) {
-            res.send({message: "Ошибка во время удаления из избранного.", err: err.message, done: false});
+            res.status(500).send({
+                message: "Ошибка во время удаления из избранного.",
+                err: err.message,
+                done: false
+            });
             await dbClient.Rollback();
         } finally {
-            res.send({done: true});
             await dbClient.Release();
         }
 
-    }
+    };
 
     queryMyFavourites = async (req, res) => {
-        const {userId} = req.body;
+        const { userId } = req.body;
+        console.log(userId);
 
         const dbClient = new DBClient();
         await dbClient.NewPool();
@@ -54,35 +67,40 @@ export class FavouritesService {
         let output = {
             Rows: {},
             Graph: {}
-        }
+        };
 
         try {
             output = await this.queryMyFavouritesTx(dbClient, userId);
+            console.log(output);
             await dbClient.Commit();
+            res.send(output);
         } catch (err) {
-            res.send({message: "Ошибка получения избранных товаров.", err: err.message, done: false});
+            res.status(500).send({
+                message: "Ошибка получения избранных товаров.",
+                err: err.message,
+                done: false
+            });
             await dbClient.Rollback();
         } finally {
-            res.send(output);
             await dbClient.Release();
         }
 
-    }
+    };
 
     queryMyFavouritesTx = async (client, userId) => {
         const output = {
             Rows: {},
             Graph: {}
-        }
-        const result = await queryMyFavourites(client, userId);
+        };
+        const result = (await queryMyFavourites(client, userId)).rows;
         let goodIds, goods;
-        if (result.rows.length) {
-            goodIds = result.rows.map(e => e.id);
-            goods = getGoodsByIds(client, goodIds);
+        if (result.length) {
+            goodIds = result.map(e => +e.good_id);
+            goods = (await getGoodsByIds(client, goodIds)).rows;
         }
-        output.Rows = result.rows;
-        output.Graph = {Goods: goods};
+        output.Rows = result;
+        output.Graph = { Goods: goods };
         return output;
-    }
+    };
 
 }

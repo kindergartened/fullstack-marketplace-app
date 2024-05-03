@@ -16,9 +16,9 @@ router.get('/get_user_by_id/:id', userService.getUserById);
 router.post('/register', userService.register);
 router.post('/login', userService.login);
 
-// Routes
+// Favourites
 router.post('/add_to_fav', favService.addToFav)
-router.delete('/delete_fav_by_id', favService.deleteFromFavById)
+router.post('/delete_fav_by_id', favService.deleteFromFavById)
 router.get('/my_fav', favService.queryMyFavourites)
 
 // Cart

@@ -14,4 +14,3 @@ export * from "./HomePageCircleButs/catalogueButtons";
 export * from "./PopularGoods/popularGoods";
 export * from "../pages/CartPage/CartPage";
 export * from "./CardList/Card/CardComponent";
-export * from "./CardList/CardForCart/CardForCart";

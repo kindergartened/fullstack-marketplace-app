@@ -29,7 +29,7 @@ export class CartService {
             res.status(200).json({ done: true });
             await dbClient.Commit();
         } catch (err) {
-            res.send({
+            res.status(500).send({
                 message: "Ошибка добавления товара в корзину.",
                 err: err.message,
                 done: false
@@ -51,7 +51,7 @@ export class CartService {
             await deleteFromCart(dbClient, id);
             await dbClient.Commit();
         } catch (err) {
-            res.send({
+            res.status(500).send({
                 message: "Ошибка удаления товара из корзины.",
                 err: err.message,
                 done: false
@@ -65,57 +65,57 @@ export class CartService {
     }
 
     increaseGoodCart = async (req, res) => {
-        const { id } = req.body;
+        const { userId, goodId } = req.body;
 
         const dbClient = new DBClient();
         await dbClient.NewPool();
         await dbClient.Begin();
 
         try {
-            const good = getCartGoodById(dbClient, id);
+            const good = (await getCartGoodByUserGoodId(dbClient, goodId, userId)).rows[0];
             let newCount = good.count + 1;
 
-            await updateGoodCartCount(dbClient, newCount, id);
+            await updateGoodCartCount(dbClient, newCount, good.id);
             await dbClient.Commit();
+            res.send({ done: true });
         } catch (err) {
-            res.send({
+            res.status(500).send({
                 message: "Ошибка увеличения количества товара в корзине.",
                 err: err.message,
                 done: false
             });
             await dbClient.Rollback();
         } finally {
-            res.send({ done: true });
             await dbClient.Release();
         }
 
     }
 
     decreaseGoodCart = async (req, res) => {
-        const { id } = req.body;
+        const { userId, goodId } = req.body;
 
         const dbClient = new DBClient();
         await dbClient.NewPool();
         await dbClient.Begin();
 
         try {
-            const good = getCartGoodById(dbClient, id);
+            const good = (await getCartGoodByUserGoodId(dbClient, goodId, userId)).rows[0];
             let newCount = good.count - 1;
             if (newCount < 0) {
                 throw new Error("Количество не может быть меньше нуля");
             } else {
-                await updateGoodCartCount(dbClient, newCount, id);
+                await updateGoodCartCount(dbClient, newCount, good.id);
                 await dbClient.Commit();
             }
+            res.send({ done: true });
         } catch (err) {
-            res.send({
+            res.status(500).send({
                 message: "Ошибка уменьшения количества товара в корзине.",
                 err: err.message,
                 done: false
             });
             await dbClient.Rollback();
         } finally {
-            res.send({ done: true });
             await dbClient.Release();
         }
     }

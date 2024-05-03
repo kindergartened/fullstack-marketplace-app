@@ -2,9 +2,10 @@
     width: 250px;
     height: 350px;
     position: relative;
-    background: #ffffff; 
+    background: #ffffff;
     border-radius: 15px;
     border: 1px solid rgba(167, 167, 167, 0.418);
+    user-select: none;
 }
 
 .container:hover {
@@ -12,15 +13,16 @@
     box-shadow: 6px 4px 10px rgb(221, 221, 221);
     transition: all 0.2s ease-in;
 }
+
 .body {
     padding: 1rem;
 }
 
 /* image 2 */
-.image{
-    object-fit:cover;
+.image {
+    object-fit: cover;
     object-position: 50% 70%;
-    margin:10px 10px 0px 10px;
+    margin: 10px 10px 0 10px;
     height: 220px;
     width: 230px;
     border-radius: 15px 15px 0px 0px;
@@ -28,20 +30,24 @@
 }
 
 .footer {
-    margin-top:0.75rem;
+    margin-top: 0.75rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.brand{
+.brand {
     margin-top: 0.25rem;
 }
 
-
-/* fav */
-.heart, .cart{
+.heart, .cart {
     fill: black;
+    width: 30px;
+    height: 30px;
+}
+
+.red_heart {
+    fill: red;
     width: 30px;
     height: 30px;
 }
@@ -50,17 +56,12 @@
     margin-left: 0.25rem;
 }
 
-.cart:hover, .heart:hover{
+.cart:hover, .heart:hover, .red_heart:hover {
     transform: scale(1.2);
     transition: all 0.1s ease-in;
 }
 
-
-
-
-
-/* 10 990 */
-.price{
+.price {
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
@@ -70,19 +71,7 @@
     color: #000000;
 }
 
-
-/* rub ico */
-
-/* 
-left: 41.6%;
-right: 52.4%;
-top: 69.71%;
-bottom: 23.71%; */
-
-
-
-/* shoes type */
-.type{
+.type {
     font-weight: 500;
     font-size: 14px;
     display: flex;
@@ -90,15 +79,10 @@ bottom: 23.71%; */
     color: #000000;
 }
 
-/* Brand & model */
-.brand{
+.brand {
     font-weight: 700;
     font-size: 14px;
     display: flex;
     align-items: center;
     color: #000000;
 }
-
-
-
-

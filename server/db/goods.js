@@ -3,5 +3,5 @@ export async function getGoods(client) {
 }
 
 export async function getGoodsByIds(client, ids) {
-    return await client.Pool.query('SELECT * FROM goods WHERE id IN ('+ ids.join(',') +')')
+    return await client.Pool.query(`SELECT * FROM goods WHERE id IN (${ids.join(', ')})`);
 }

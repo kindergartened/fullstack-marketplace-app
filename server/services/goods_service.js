@@ -13,7 +13,7 @@ export class GoodsService {
             result = await getGoods(dbClient);
             await dbClient.Commit();
         } catch (err) {
-            res.send({message: "Ошибка во время получения товаров.", err: err.message, done: false});
+            res.status(500).send({message: "Ошибка во время получения товаров.", err: err.message, done: false});
             await dbClient.Rollback();
         } finally {
             res.send(result.rows);

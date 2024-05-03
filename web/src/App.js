@@ -38,7 +38,6 @@ function App () {
         auth().then((res) => {
             if (res) {
                 const user = userGraph(res.data.user);
-                console.log(user);
                 toast(res.data.message, {
                     type: "success"
                 });

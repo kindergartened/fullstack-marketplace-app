@@ -1,40 +1,11 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {FavouritesList} from "../../components";
 import styles from "./FavouritesPage.module.css";
-import {useMeState} from "../../hooks/state";
-import {queryMyFavourites} from "../../api/api";
+import { useMeState } from "../../hooks/state";
 
 export const FavouritesPage = () => {
-    const [favourites, setFavourites] = useState([{
-        Title: "Boobtsi",
-        Description: "Otlishnie boobtsi",
-        Price: "mnoga deneg (100 rubley)"
-    }, {
-        Title: "Boobtsi",
-        Description: "Otlishnie boobtsi",
-        Price: "mnoga deneg (100 rubley)"
-    }, {
-        Title: "Boobtsi",
-        Description: "Otlishnie boobtsi",
-        Price: "mnoga deneg (100 rubley)"
-    }, {
-        Title: "Boobtsi",
-        Description: "Otlishnie boobtsi",
-        Price: "mnoga deneg (100 rubley)"
-    }, {
-        Title: "Boobtsi",
-        Description: "Otlishnie boobtsi",
-        Price: "mnoga deneg (100 rubley)"
-    }]);
-    const xd = useMeState();
-    useEffect(() => {
-        queryMyFavourites(xd.user).then((res) => {
-            setFavourites(res.data.Rows);
-        }).catch(err => {
-            console.log({message: "Ошибка во время получения избранных товаров.", err: err.message, done: false});
-        });
-    }, []);
-    return xd.user
+    const {user, setUser} = useMeState();
+    return user
         ?
         <div>
             <div className={styles.page}>
@@ -44,14 +15,14 @@ export const FavouritesPage = () => {
                     </div>
                 </div>
             </div>
-            {favourites.length !== 0
+            {user.favourites.Rows.length !== 0
                 ? <div className={styles.querryDisplayContainer}>Тут находятся ваши любимые товары</div>
                 : <div className={styles.querryDisplay + " w-100 text-center"}>
                     <span>Тут пока что ничего нет :&#40;</span>
                 </div>
             }
-            <div>
-                <FavouritesList favourites={favourites}/>
+            <div className="m-3">
+                <FavouritesList favourites={user.favourites.Rows}/>
             </div>
         </div>
         :

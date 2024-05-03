@@ -15,7 +15,6 @@ export async function deleteFromCart (client, id) {
 }
 
 export async function updateGoodCartCount (client, newCount, id) {
-    console.log(id, newCount);
     return await client.Pool.query("UPDATE carts SET count = $1, updated_at = $2 WHERE id = $3", [newCount, new Date(), id]);
 }
 

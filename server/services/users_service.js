@@ -46,7 +46,7 @@ export class UsersService {
             }
             await dbClient.Commit();
         } catch (err) {
-            res.send({
+            res.status(500).send({
                 message: "Ошибка авторизации",
                 err: err.message,
                 done: false
@@ -95,7 +95,7 @@ export class UsersService {
                 await dbClient.Commit();
             }
         } catch (err) {
-            res.send({
+            res.status(500).send({
                 message: "Ошибка регистрации",
                 err: err.message,
                 done: false
@@ -120,7 +120,7 @@ export class UsersService {
             result = await getUserById(dbClient, id);
             await dbClient.Commit();
         } catch (err) {
-            res.send({
+            res.status(500).send({
                 message: "Ошибка получения пользователя",
                 err: err.message,
                 done: false
@@ -145,7 +145,8 @@ export class UsersService {
                 secure: true,
             });
 
-            user.favourites = await this.favouritesService.queryMyFavouritesTx(dbClient, user.id);
+            console.log(user.id);
+            user.favourites = await this.favouritesService.queryMyFavouritesTx(dbClient, +user.id);
             user.cart = await this.cartService.queryMyCartTx(dbClient, user.id);
             res.status(200).json({
                 message: "Добро пожаловать, " + req.user.name + "!",

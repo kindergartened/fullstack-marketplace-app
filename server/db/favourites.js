@@ -5,9 +5,13 @@ async function nextId(client) {
 }
 
 export async function addToFav(client, userId, goodId, now) {
-    const id = await nextId(client.Pool);
+    const id = await nextId(client);
 
     return await client.Pool.query("INSERT INTO favourites (id, user_id, good_id, created_at) VALUES ($1, $2, $3, $4)", [id, userId, goodId, now]);
+}
+
+export async function getFromFavByGoodUserIds(client, userId, goodId) {
+    return await client.Pool.query("select * from favourites where good_id = $1 AND user_id = $2", [goodId, userId]);
 }
 
 export async function deleteFromFavById(client, id) {
